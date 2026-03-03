@@ -1,4 +1,4 @@
-import styles from "./index.module.scss";
+import styles from "./SidebarRow.module.scss";
 
 const SidebarRow = ({
 	icon: Icon,

@@ -1,5 +1,5 @@
 import styles from "./Projects.module.scss";
-import SidebarRow from "../SidebarRow";
+import SidebarRow from "../SidebarRow/SidebarRow";
 import { PROJECTS_DATA } from "../../data/sidebarData";
 
 const Projects = () => {

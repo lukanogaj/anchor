@@ -1,5 +1,5 @@
 import styles from "./Workspace.module.scss";
-import SidebarRow from "../SidebarRow";
+import SidebarRow from "../SidebarRow/SidebarRow";
 import { WORKSPACE_DATA } from "../../data/sidebarData";
 
 const Workspace = () => {

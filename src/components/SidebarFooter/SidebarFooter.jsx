@@ -1,6 +1,6 @@
 import styles from "./SidebarFooter.module.scss";
 import { SIDEBAR_FOOTER_DATA } from "../../data/sidebarData";
-import SidebarRow from "../SidebarRow";
+import SidebarRow from "../SidebarRow/SidebarRow";
 
 const SidebarFooter = ({ onNewList, onToggle }) => {
 	const actionsMap = {
