@@ -1,4 +1,4 @@
-import styles from "./index.module.scss";
+import styles from "./InputSearch.module.scss";
 import { SIDEBAR_SEARCH_DATA } from "../../../data/sidebarData";
 
 const InputSearch = () => {
