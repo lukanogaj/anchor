@@ -1,8 +1,8 @@
 import styles from "./Sidebar.module.scss";
 import Header from "../Header/Header";
-import AddTaskControl from "../Controls/AddTaskControl";
+import AddTaskControl from "../Controls/AddTaskControl/AddTaskControl";
 import SearchControl from "../Controls/InputSearch";
-import Workspace from "../Workspace";
+import Workspace from "../Workspace/Workspace";
 import Projects from "../Projects";
 import SideBarFooter from "../SidebarFooter/SidebarFooter";
 

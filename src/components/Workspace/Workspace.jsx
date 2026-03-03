@@ -1,4 +1,4 @@
-import styles from "./index.module.scss";
+import styles from "./Workspace.module.scss";
 import SidebarRow from "../SidebarRow";
 import { WORKSPACE_DATA } from "../../data/sidebarData";
 

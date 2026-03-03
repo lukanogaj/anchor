@@ -1,4 +1,4 @@
-import styles from "./index.module.scss";
+import styles from "./AddTaskControl.module.scss";
 import { SIDEBAR_ADD_TASK_DATA } from "../../../data/sidebarData";
 
 const AddTaskControl = ({ onOpen }) => {
