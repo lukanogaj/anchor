@@ -2,7 +2,7 @@ import { useState } from "react";
 import Content from "../../components/Content/Content";
 import styles from "./MyDayContainer.module.scss";
 
-import MyDayPage from "../../pages/MyDay";
+import MyDayPage from "../../pages/MyDay/MyDayPage";
 
 import useTodos from "../../features/hooks/useTodos";
 import { useOverdueTodos } from "../../features/hooks/useOverdueTodos";

@@ -1,4 +1,4 @@
-import styles from "./index.module.scss";
+import styles from "./MyDayPage.module.scss";
 import TodoRow from "../../components/TodoRow/TodoRow";
 
 const Section = ({ title, emptyText, todos, actions, variant }) => {
