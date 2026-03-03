@@ -4,7 +4,7 @@ import AddTaskControl from "../Controls/AddTaskControl";
 import SearchControl from "../Controls/InputSearch";
 import Workspace from "../Workspace";
 import Projects from "../Projects";
-import NewList from "../NewList";
+import SideBarFooter from "../SidebarFooter/SidebarFooter";
 
 const Sidebar = ({ onAddTaskClick }) => {
 	return (
@@ -19,7 +19,7 @@ const Sidebar = ({ onAddTaskClick }) => {
 			</div>
 
 			<div className={styles.footer}>
-				<NewList />
+				<SideBarFooter />
 			</div>
 		</aside>
 	);

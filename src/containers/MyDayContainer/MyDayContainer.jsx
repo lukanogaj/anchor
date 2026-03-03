@@ -3,13 +3,13 @@ import Content from "../../components/Content/Content";
 import styles from "./MyDayContainer.module.scss";
 
 import MyDayPage from "../../pages/MyDay";
-import NewTodoHandler from "../../components/NewTodoHandler";
 
 import useTodos from "../../features/hooks/useTodos";
 import { useOverdueTodos } from "../../features/hooks/useOverdueTodos";
 import { useTodayTodos } from "../../features/hooks/useTodayTodos";
 import { useUpcomingTodos } from "../../features/hooks/useUpcomingTodos";
 import { useUndatedTodos } from "../../features/hooks/useUndatedTodos";
+import AddTodoModal from "../../components/AddTodoModal/AddTodoModal";
 const MyDayContainer = () => {
 	const { todos, deleteTodo, updateTodo, completeTodo, addTodo } = useTodos();
 
@@ -44,7 +44,7 @@ const MyDayContainer = () => {
 				/>
 
 				{isAddTaskOpen && (
-					<NewTodoHandler
+					<AddTodoModal
 						addTodo={addTodo}
 						onClose={closeAddTask}
 					/>

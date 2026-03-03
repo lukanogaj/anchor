@@ -1,8 +1,8 @@
-import styles from "./index.module.scss";
+import styles from "./AddTodoModal.module.scss";
 import { useState, useEffect } from "react";
 import { Plus } from "../images/icons";
 
-const NewTodoHandler = ({ onClose, addTodo }) => {
+const AddTodoModal = ({ onClose, addTodo }) => {
 	const [title, setTitle] = useState("");
 	const [date, setDate] = useState("");
 	const [description, setDescription] = useState("");
@@ -111,4 +111,4 @@ const NewTodoHandler = ({ onClose, addTodo }) => {
 	);
 };
 
-export default NewTodoHandler;
+export default AddTodoModal;
