@@ -1,10 +1,286 @@
+// .todayCard {
+// 	background: rgba(255, 255, 255, 0.05);
+// 	border-radius: 1.125rem;
+// 	padding: 1rem;
+// 	border: 1px solid rgba(255, 255, 255, 0.06);
+// 	transition:
+// 		transform 0.18s ease,
+// 		box-shadow 0.18s ease,
+// 		border-color 0.18s ease,
+// 		background 0.18s ease,
+// 		opacity 0.18s ease;
+// }
+
+// .todayCard:hover {
+// 	transform: translateY(-2px);
+// 	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+// 	border-color: rgba(255, 255, 255, 0.18);
+// 	background: rgba(255, 255, 255, 0.07);
+// }
+
+// .todayCard:focus-within {
+// 	transform: translateY(-1px);
+// 	box-shadow: 0 10px 26px rgba(0, 0, 0, 0.26);
+// 	border-color: rgba(255, 255, 255, 0.14);
+// }
+
+// /* ===== Completing state ===== */
+
+// .completing {
+// 	opacity: 0.7;
+// 	transform: translateY(1px);
+// }
+
+// .completing .title {
+// 	text-decoration: line-through;
+// 	opacity: 0.9;
+// }
+
+// /* ===== Layout ===== */
+
+// .headerToday {
+// 	display: flex;
+// 	align-items: flex-start;
+// 	justify-content: space-between;
+// 	gap: 1rem;
+// }
+
+// .leftBlock {
+// 	display: flex;
+// 	align-items: flex-start;
+// 	gap: 0.75rem;
+// 	flex: 1;
+// 	min-width: 0;
+// }
+
+// /* ===== Checkbox ===== */
+
+// .check {
+// 	appearance: none;
+// 	-webkit-appearance: none;
+
+// 	width: 1.25rem;
+// 	height: 1.25rem;
+
+// 	border-radius: 50%;
+// 	border: 2px solid rgba(255, 255, 255, 0.6);
+// 	background: transparent;
+
+// 	cursor: pointer;
+// 	position: relative;
+// 	transition: all 0.2s ease;
+// 	flex: 0 0 auto;
+// 	margin-top: 0.1rem;
+// }
+
+// .check:checked {
+// 	background: #4da3ff;
+// 	border-color: #4da3ff;
+// }
+
+// .check:checked::after {
+// 	content: "";
+// 	position: absolute;
+// 	inset: 0.25rem;
+// 	border-radius: 50%;
+// 	background: #fff;
+// }
+
+// .check:focus-visible {
+// 	outline: none;
+// 	box-shadow: 0 0 0 3px rgba(77, 163, 255, 0.35);
+// }
+
+// /* ===== Text block ===== */
+
+// .textBlock {
+// 	min-width: 0;
+// 	display: flex;
+// 	flex-direction: column;
+// 	gap: 1rem;
+// }
+
+// .title {
+// 	color: #fff;
+// 	font-size: 1.1rem;
+// 	font-weight: 600;
+// 	line-height: 1.2;
+// 	overflow: hidden;
+// 	text-overflow: ellipsis;
+// 	white-space: nowrap;
+// 	cursor: pointer;
+// }
+
+// .metaRow {
+// 	display: flex;
+// 	align-items: center;
+// 	gap: 0.625rem;
+// 	font-size: 0.75rem;
+// }
+
+// .dotWrap {
+// 	display: inline-flex;
+// 	align-items: center;
+// }
+
+// .dot {
+// 	width: 0.9rem;
+// 	height: 0.9rem;
+// 	color: rgba(255, 255, 255, 0.35);
+// 	opacity: 0.28;
+// }
+
+// .dayCat {
+// 	color: rgba(255, 255, 255, 0.55);
+// }
+
+// /* ===== Actions ===== */
+
+// .actions {
+// 	display: flex;
+// 	flex-direction: column;
+// 	align-items: flex-end;
+// 	gap: 0.75rem;
+// 	flex: 0 0 auto;
+// }
+
+// .topActions,
+// .bottomActions {
+// 	display: flex;
+// 	align-items: center;
+// 	gap: 0.625rem;
+// }
+
+// /* ===== Icon Buttons ===== */
+
+// .iconBtn {
+// 	background: transparent;
+// 	border: 0;
+// 	padding: 0.25rem;
+// 	border-radius: 0.5rem;
+// 	cursor: pointer;
+// 	color: rgba(255, 255, 255, 0.85);
+// 	display: inline-flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	transition:
+// 		background 140ms ease,
+// 		transform 140ms ease,
+// 		color 140ms ease,
+// 		box-shadow 140ms ease;
+// }
+
+// .iconBtn svg {
+// 	width: 1.25rem;
+// 	height: 1.25rem;
+// }
+
+// .iconBtn:hover:not(:disabled) {
+// 	background: rgba(255, 255, 255, 0.08);
+// 	color: rgba(255, 255, 255, 1);
+// }
+
+// .iconBtn:active:not(:disabled) {
+// 	transform: translateY(1px);
+// }
+
+// .iconBtn:focus-visible {
+// 	outline: none;
+// 	box-shadow: 0 0 0 3px rgba(77, 163, 255, 0.35);
+// }
+
+// .iconBtn:disabled {
+// 	opacity: 0.5;
+// 	cursor: not-allowed;
+// }
+
+// /* ===== Chevron animation ===== */
+
+// .icon {
+// 	display: block;
+// 	width: 1.25rem;
+// 	height: 1.25rem;
+// 	transition: transform 160ms ease;
+// }
+
+// .chevronOpen {
+// 	transform: rotate(180deg);
+// }
+
+// /* ===== Expanded details ===== */
+
+// .details {
+// 	margin-top: 0.75rem;
+// 	padding-top: 0.75rem;
+// 	border-top: 1px solid rgba(255, 255, 255, 0.08);
+// }
+
+// .description {
+// 	margin: 0;
+// 	color: rgba(255, 255, 255, 0.75);
+// 	font-size: 0.9rem;
+// 	line-height: 1.35;
+// }
+
+// .descriptionEmpty {
+// 	margin: 0;
+// 	opacity: 0.55;
+// 	font-size: 0.9rem;
+// 	line-height: 1.35;
+// }
+
+// /* ===== Responsive ===== */
+
+// @media (max-width: 32.5rem) {
+// 	.headerToday {
+// 		flex-direction: column;
+// 		align-items: stretch;
+// 	}
+
+// 	.actions {
+// 		align-items: flex-start;
+// 	}
+// }
 .todayCard {
 	background: rgba(255, 255, 255, 0.05);
-	border-radius: 1.125rem; // 18px
+	border-radius: 1.125rem;
 	padding: 1rem;
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	transition:
+		transform 0.18s ease,
+		box-shadow 0.18s ease,
+		border-color 0.18s ease,
+		background 0.18s ease,
+		opacity 0.18s ease;
 }
 
-/* single row layout: left content + right actions */
+.todayCard:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+	border-color: rgba(255, 255, 255, 0.18);
+	background: rgba(255, 255, 255, 0.07);
+}
+
+.todayCard:focus-within {
+	transform: translateY(-1px);
+	box-shadow: 0 10px 26px rgba(0, 0, 0, 0.26);
+	border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* ===== Completing state ===== */
+
+.completing {
+	opacity: 0.7;
+	transform: translateY(1px);
+}
+
+.completing .title {
+	text-decoration: line-through;
+	opacity: 0.9;
+}
+
+/* ===== Layout ===== */
+
 .headerToday {
 	display: flex;
 	align-items: flex-start;
@@ -12,7 +288,6 @@
 	gap: 1rem;
 }
 
-/* LEFT */
 .leftBlock {
 	display: flex;
 	align-items: flex-start;
@@ -21,7 +296,8 @@
 	min-width: 0;
 }
 
-/* custom circle checkbox */
+/* ===== Checkbox ===== */
+
 .check {
 	appearance: none;
 	-webkit-appearance: none;
@@ -40,18 +316,31 @@
 	margin-top: 0.1rem;
 }
 
+/* Calm “Anchor” checked state */
+
 .check:checked {
-	background: #4da3ff;
-	border-color: #4da3ff;
+	background: rgba(77, 163, 255, 0.18);
+	border-color: rgba(77, 163, 255, 0.95);
 }
 
 .check:checked::after {
 	content: "";
 	position: absolute;
-	inset: 0.25rem;
-	border-radius: 50%;
-	background: #fff;
+	left: 0.42rem;
+	top: 0.22rem;
+	width: 0.28rem;
+	height: 0.55rem;
+	border: solid rgba(255, 255, 255, 0.95);
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg);
 }
+
+.check:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(77, 163, 255, 0.35);
+}
+
+/* ===== Text block ===== */
 
 .textBlock {
 	min-width: 0;
@@ -71,17 +360,11 @@
 	cursor: pointer;
 }
 
-/* meta under title */
 .metaRow {
 	display: flex;
 	align-items: center;
 	gap: 0.625rem;
 	font-size: 0.75rem;
-}
-
-.day {
-	color: #e85d5d;
-	font-weight: 600;
 }
 
 .dotWrap {
@@ -100,7 +383,8 @@
 	color: rgba(255, 255, 255, 0.55);
 }
 
-/* RIGHT */
+/* ===== Actions ===== */
+
 .actions {
 	display: flex;
 	flex-direction: column;
@@ -116,7 +400,8 @@
 	gap: 0.625rem;
 }
 
-/* generic icon button */
+/* ===== Icon Buttons ===== */
+
 .iconBtn {
 	background: transparent;
 	border: 0;
@@ -127,6 +412,11 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
+	transition:
+		background 140ms ease,
+		transform 140ms ease,
+		color 140ms ease,
+		box-shadow 140ms ease;
 }
 
 .iconBtn svg {
@@ -134,8 +424,18 @@
 	height: 1.25rem;
 }
 
-.iconBtn:hover {
+.iconBtn:hover:not(:disabled) {
+	background: rgba(255, 255, 255, 0.08);
 	color: rgba(255, 255, 255, 1);
+}
+
+.iconBtn:active:not(:disabled) {
+	transform: translateY(1px);
+}
+
+.iconBtn:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(110, 140, 170, 0.28);
 }
 
 .iconBtn:disabled {
@@ -143,21 +443,43 @@
 	cursor: not-allowed;
 }
 
-/* keep delete for now (we'll move into dots later) */
-.dangerBtn {
-	background: transparent;
-	border: 0;
-	color: rgba(255, 255, 255, 0.85);
-	padding: 0.25rem 0.5rem;
-	border-radius: 0.5rem;
-	cursor: pointer;
+/* ===== Chevron animation ===== */
+
+.icon {
+	display: block;
+	width: 1.25rem;
+	height: 1.25rem;
+	transition: transform 160ms ease;
 }
 
-.dangerBtn:hover {
-	color: #fff;
+.chevronOpen {
+	transform: rotate(180deg);
 }
 
-/* responsive */
+/* ===== Expanded details ===== */
+
+.details {
+	margin-top: 0.75rem;
+	padding-top: 0.75rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.description {
+	margin: 0;
+	color: rgba(255, 255, 255, 0.75);
+	font-size: 0.9rem;
+	line-height: 1.35;
+}
+
+.descriptionEmpty {
+	margin: 0;
+	opacity: 0.55;
+	font-size: 0.9rem;
+	line-height: 1.35;
+}
+
+/* ===== Responsive ===== */
+
 @media (max-width: 32.5rem) {
 	.headerToday {
 		flex-direction: column;
@@ -167,47 +489,4 @@
 	.actions {
 		align-items: flex-start;
 	}
-}
-
-/* ===== NEW: classes your JSX expects ===== */
-
-/* You are using: className={styles.icon} on <Dots/> and <ChevronDown/> */
-.icon {
-	display: block;
-	width: 1.25rem;
-	height: 1.25rem;
-}
-
-/* Rotate chevron when expanded (you apply this to the chevron SVG) */
-.chevronOpen {
-	transform: rotate(180deg);
-	transition: transform 160ms ease;
-}
-
-/* (optional but nice) smooth default state too */
-.icon {
-	transition: transform 160ms ease;
-}
-
-/* ===== NEW: expanded content block (you still need to render it in JSX) ===== */
-.details {
-	margin-top: 0.75rem;
-	padding-top: 0.75rem;
-	border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Keep your existing .description name, but make it “paragraph safe” */
-.description {
-	margin: 0;
-	color: rgba(255, 255, 255, 0.75);
-	font-size: 0.9rem;
-	line-height: 1.35;
-}
-
-/* Optional if you show fallback text when empty */
-.descriptionEmpty {
-	margin: 0;
-	opacity: 0.55;
-	font-size: 0.9rem;
-	line-height: 1.35;
 }
