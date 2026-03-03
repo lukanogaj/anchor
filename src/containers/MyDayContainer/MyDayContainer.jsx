@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Content from "../Content/Content";
+import Content from "../../components/Content/Content";
 import styles from "./MyDayContainer.module.scss";
 
 import MyDayPage from "../../pages/MyDay";
-import NewTodoHandler from "../NewTodoHandler";
+import NewTodoHandler from "../../components/NewTodoHandler";
 
 import useTodos from "../../features/hooks/useTodos";
 import { useOverdueTodos } from "../../features/hooks/useOverdueTodos";

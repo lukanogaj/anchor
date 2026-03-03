@@ -1,6 +1,6 @@
 import "./App.css";
 import Layout from "./components/Layout";
-import MyDayContainer from "./components/MyDayContainer/MyDayContainer";
+import MyDayContainer from "./containers/MyDayContainer/MyDayContainer";
 function App() {
 	return (
 		<Layout>
