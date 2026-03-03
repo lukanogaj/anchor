@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import Header from "../Header";
+import Header from "../Header/Header";
 import AddTaskControl from "../Controls/AddTaskControl";
 import SearchControl from "../Controls/InputSearch";
 import Workspace from "../Workspace";

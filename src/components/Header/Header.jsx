@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./index.module.scss";
+import styles from "./Header.module.scss";
 import mojo from "../images/mojo.jpg";
 import { SIDEBAR_HEADER_DATA } from "../../data/sidebarData";
 

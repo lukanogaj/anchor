@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import styles from "./index.module.scss";
+import styles from "./Layout.module.scss";
 
 const Layout = ({ children }) => {
 	return <div className={styles.layout}>{children}</div>;
