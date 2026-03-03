@@ -1,4 +1,4 @@
-import styles from "./index.module.scss";
+import styles from "./Sidebar.module.scss";
 import Header from "../Header/Header";
 import AddTaskControl from "../Controls/AddTaskControl";
 import SearchControl from "../Controls/InputSearch";

@@ -1,5 +1,5 @@
 import styles from "./Content.module.scss";
-import Sidebar from "../../components/Sidebar";
+import Sidebar from "../../components/Sidebar/Sidebar";
 import DateTimeClock from "../DateTimeClock/DateTimeClock";
 import HeaderUtilities from "../HeaderUtilities/HeaderUtilities";
 
