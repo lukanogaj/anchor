@@ -1,5 +1,5 @@
 import styles from "./TodoRow.module.scss";
-import { Dots, Dot, Star, Watch, ChevronDown } from "../images/icons";
+import { Dots, Dot, Star, Watch, ChevronDown } from "../images/icons/Icons";
 import { useState } from "react";
 
 const TodoRow = ({ todo, actions }) => {

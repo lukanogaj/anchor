@@ -1,5 +1,5 @@
 import styles from "./HeaderUtilities.module.scss";
-import { SlidersIcon, LightbulbIcon } from "../images/icons";
+import { SlidersIcon, LightbulbIcon } from "../images/icons/Icons";
 const HeaderUtilities = () => {
 	return (
 		<div

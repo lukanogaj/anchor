@@ -10,7 +10,7 @@ import {
 	Hash,
 	MenuFilter,
 	LightbulbIcon,
-} from "../components/images/icons";
+} from "../components/images/icons/Icons";
 
 /* =========================
    Sidebar Header
