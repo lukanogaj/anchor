@@ -3,7 +3,7 @@ import Header from "../Header/Header";
 import AddTaskControl from "../Controls/AddTaskControl/AddTaskControl";
 import SearchControl from "../Controls/InputSearch/InputSearch";
 import Workspace from "../Workspace/Workspace";
-import Projects from "../Projects";
+import Projects from "../Projects/Projects";
 import SideBarFooter from "../SidebarFooter/SidebarFooter";
 
 const Sidebar = ({ onAddTaskClick }) => {

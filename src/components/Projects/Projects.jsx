@@ -1,4 +1,4 @@
-import styles from "./index.module.scss";
+import styles from "./Projects.module.scss";
 import SidebarRow from "../SidebarRow";
 import { PROJECTS_DATA } from "../../data/sidebarData";
 
