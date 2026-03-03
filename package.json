@@ -44,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "baseline-browser-mapping": "^2.10.0",
     "madge": "^6.1.0",
     "sass": "^1.94.0",
     "sass-loader": "^16.0.6",
