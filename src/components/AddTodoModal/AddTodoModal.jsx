@@ -1,6 +1,6 @@
 import styles from "./AddTodoModal.module.scss";
 import { useState, useEffect } from "react";
-import { Plus } from "../images/icons/Icons.jsx";
+import { Plus } from "../images/icons/Icons";
 
 const AddTodoModal = ({ onClose, addTodo }) => {
 	const [title, setTitle] = useState("");
@@ -24,7 +24,7 @@ const AddTodoModal = ({ onClose, addTodo }) => {
 	const maxDate = formatYYYYMMDD(
 		new Date(today.getFullYear() + 5, today.getMonth(), today.getDate()),
 	);
-	//////
+
 	const handleAddSubmit = async () => {
 		const cleanTitle = title.trim();
 		if (!cleanTitle) return;

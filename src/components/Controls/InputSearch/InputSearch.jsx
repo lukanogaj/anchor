@@ -11,6 +11,7 @@ const InputSearch = () => {
 				placeholder={placeholder}
 				aria-label={ariaLabel}
 				name='search'
+				autoComplete='off'
 				className={styles.input}
 			/>
 			<Icon className={styles.searchIcon} />

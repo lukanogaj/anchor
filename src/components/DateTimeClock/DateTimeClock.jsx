@@ -2,12 +2,10 @@ import { useEffect, useMemo, useState } from "react";
 import styles from "./DateTimeClock.module.scss";
 
 const formatDateTime = (now) => {
-	// Guard: ensure valid date
-	if (!(now instanceof Date) || isNaN(now)) {
+	if (!(now instanceof Date) || isNaN(now.getTime())) {
 		return { date: "", time: "" };
 	}
 
-	// ----- Date using formatToParts (safe) -----
 	const dateFormatter = new Intl.DateTimeFormat("en-GB", {
 		weekday: "short",
 		day: "2-digit",
@@ -22,7 +20,6 @@ const formatDateTime = (now) => {
 
 	const date = `${weekday} ${day}, ${month}`;
 
-	// ----- Time -----
 	const time = new Intl.DateTimeFormat("en-GB", {
 		hour: "numeric",
 		minute: "2-digit",
@@ -40,7 +37,7 @@ const DateTimeClock = () => {
 	useEffect(() => {
 		const id = setInterval(() => {
 			setNow(new Date());
-		}, 30_000);
+		}, 30000);
 
 		return () => clearInterval(id);
 	}, []);
