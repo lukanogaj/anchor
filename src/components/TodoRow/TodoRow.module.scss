@@ -1,7 +1,7 @@
 .todayCard {
 	background: rgba(255, 255, 255, 0.05);
 	border-radius: 1.125rem;
-	padding: 1rem;
+	padding: 0.9rem 1rem;
 	border: 1px solid rgba(255, 255, 255, 0.06);
 	transition:
 		transform 0.18s ease,
@@ -9,11 +9,15 @@
 		border-color 0.18s ease,
 		background 0.18s ease,
 		opacity 0.18s ease;
+	cursor: pointer;
 }
 
+.todayCard:active {
+	transform: translateY(-1px);
+}
 .todayCard:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+	transform: translateY(-1px);
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
 	border-color: rgba(255, 255, 255, 0.18);
 	background: rgba(255, 255, 255, 0.07);
 }
@@ -22,6 +26,8 @@
 	transform: translateY(-1px);
 	box-shadow: 0 10px 26px rgba(0, 0, 0, 0.26);
 	border-color: rgba(255, 255, 255, 0.14);
+	outline: 2px solid rgba(110, 140, 170, 0.35);
+	outline-offset: 3px;
 }
 
 /* ===== Completing state ===== */
@@ -148,6 +154,7 @@
 	align-items: flex-end;
 	gap: 0.75rem;
 	flex: 0 0 auto;
+	flex-shrink: 0;
 }
 
 .topActions,
