@@ -2,7 +2,7 @@ import styles from "./TodoRow.module.scss";
 import { Dots, Dot, Star, Watch, ChevronDown } from "../images/icons/Icons";
 import { useEffect, useRef, useState } from "react";
 
-const COMPLETE_DELAY_MS = 4950;
+const COMPLETE_DELAY_MS = 500;
 
 const TodoRow = ({ todo, actions }) => {
 	const [isExpanded, setIsExpanded] = useState(false);

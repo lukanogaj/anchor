@@ -241,7 +241,6 @@
 }
 
 /* ===== Responsive ===== */
-
 @media (max-width: 32.5rem) {
 	.headerToday {
 		flex-direction: column;
@@ -249,6 +248,9 @@
 	}
 
 	.actions {
+		flex-direction: row;
+		flex-wrap: wrap;
 		align-items: flex-start;
+		gap: 0.625rem;
 	}
 }
