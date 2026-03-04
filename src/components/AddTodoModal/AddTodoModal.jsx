@@ -1,6 +1,6 @@
 import styles from "./AddTodoModal.module.scss";
 import { useState, useEffect } from "react";
-import { Plus } from "../images/icons/Icons";
+import { Plus } from "../images/icons/Icons.jsx";
 
 const AddTodoModal = ({ onClose, addTodo }) => {
 	const [title, setTitle] = useState("");
