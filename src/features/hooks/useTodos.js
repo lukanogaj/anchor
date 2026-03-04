@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import supabase from "../../lib/supabaseClient";
-import { isValidISODateString, isWithinFiveYears } from "../todos/utils/date";
+import { isValidISODateString, isWithinFiveYears } from "../../lib/date";
 import {
 	fetchTodos as fetchTodosService,
 	insertTodo,

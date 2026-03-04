@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { isFuture, startOfDay } from "../todos/utils/date"; // export startOfDay or make a helper
+import { isFuture, startOfDay } from "../../lib/date"; // export startOfDay or make a helper
 
 export const useUpcomingTodos = (todos = []) => {
 	return useMemo(() => {

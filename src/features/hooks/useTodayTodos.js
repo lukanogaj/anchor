@@ -1,5 +1,5 @@
 import { useFilteredTodos } from "./useFilteredTodos";
-import { isToday } from "../todos/utils/date";
+import { isToday } from "../../lib/date";
 
 export const useTodayTodos = (todos = []) => {
 	return useFilteredTodos(

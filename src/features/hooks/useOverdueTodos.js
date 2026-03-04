@@ -1,5 +1,5 @@
 import { useFilteredTodos } from "./useFilteredTodos";
-import { isOverdue } from "../todos/utils/date";
+import { isOverdue } from "../../lib/date";
 
 export const useOverdueTodos = (todos = []) => {
 	return useFilteredTodos(
