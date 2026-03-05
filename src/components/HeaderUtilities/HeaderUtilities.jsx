@@ -1,21 +1,23 @@
 import styles from "./HeaderUtilities.module.scss";
 import { SlidersIcon, LightbulbIcon } from "../images/icons/Icons";
+
 const HeaderUtilities = () => {
 	return (
 		<div
-			className={styles.utilities}
+			className={styles.headerUtilities}
 			aria-label='Header Utilities'>
 			<button
 				type='button'
-				className={styles.iconButton}
+				className={styles.headerUtilitiesButton}
 				aria-label='Filters'>
-				<SlidersIcon className={styles.icon} />
+				<SlidersIcon className={styles.headerUtilitiesIcon} />
 			</button>
+
 			<button
 				type='button'
-				className={styles.iconButton}
+				className={styles.headerUtilitiesButton}
 				aria-label='Suggestions'>
-				<LightbulbIcon className={styles.icon} />
+				<LightbulbIcon className={styles.headerUtilitiesIcon} />
 			</button>
 		</div>
 	);
