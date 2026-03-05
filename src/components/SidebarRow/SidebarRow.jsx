@@ -5,7 +5,7 @@ const SidebarRow = ({
 	label,
 	count,
 	active = false,
-	accent, // 👈 NEW (optional: "blue" | "green")
+	accent,
 	onClick,
 }) => {
 	const className = [

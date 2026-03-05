@@ -6,7 +6,7 @@ const Workspace = () => {
 	const { heading, items } = WORKSPACE_DATA;
 
 	return (
-		<section className={styles.workSpace}>
+		<section className={styles.workspace}>
 			<h4 className={styles.heading}>{heading}</h4>
 
 			<div className={styles.list}>

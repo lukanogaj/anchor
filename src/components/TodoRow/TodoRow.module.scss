@@ -30,8 +30,6 @@
 	outline-offset: 3px;
 }
 
-/* ===== Completing state ===== */
-
 .completing {
 	opacity: 0.7;
 	transform: translateY(1px);
@@ -41,8 +39,6 @@
 	text-decoration: line-through;
 	opacity: 0.9;
 }
-
-/* ===== Layout ===== */
 
 .headerToday {
 	display: flex;
@@ -58,8 +54,6 @@
 	flex: 1;
 	min-width: 0;
 }
-
-/* ===== Checkbox ===== */
 
 .check {
 	appearance: none;
@@ -79,7 +73,7 @@
 	margin-top: 0.32rem;
 }
 
-/* Calm “Anchor” checked state */
+/* checked state: accent color */
 
 .check:checked {
 	background: rgba(77, 163, 255, 0.18);
@@ -102,8 +96,6 @@
 	outline: none;
 	box-shadow: 0 0 0 3px rgba(77, 163, 255, 0.35);
 }
-
-/* ===== Text block ===== */
 
 .textBlock {
 	min-width: 0;
@@ -144,8 +136,6 @@
 	color: rgba(255, 255, 255, 0.55);
 }
 
-/* ===== Actions ===== */
-
 .actions {
 	display: flex;
 	flex-direction: column;
@@ -161,8 +151,6 @@
 	align-items: center;
 	gap: 0.625rem;
 }
-
-/* ===== Icon Buttons ===== */
 
 .iconBtn {
 	background: transparent;
@@ -205,8 +193,6 @@
 	cursor: not-allowed;
 }
 
-/* ===== Chevron animation ===== */
-
 .icon {
 	display: block;
 	width: 1.25rem;
@@ -217,8 +203,6 @@
 .chevronOpen {
 	transform: rotate(180deg);
 }
-
-/* ===== Expanded details ===== */
 
 .details {
 	margin-top: 0.75rem;
@@ -240,7 +224,6 @@
 	line-height: 1.35;
 }
 
-/* ===== Responsive ===== */
 @media (max-width: 32.5rem) {
 	.headerToday {
 		flex-direction: column;

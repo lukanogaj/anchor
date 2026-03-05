@@ -12,9 +12,6 @@ import {
 	LightbulbIcon,
 } from "../components/images/icons/Icons";
 
-/* =========================
-   Sidebar Header
-   ========================= */
 export const SIDEBAR_HEADER_DATA = {
 	profile: {
 		name: "Lukasz",
@@ -33,27 +30,18 @@ export const SIDEBAR_HEADER_DATA = {
 	],
 };
 
-/* =========================
-   Add Task Control
-   ========================= */
 export const SIDEBAR_ADD_TASK_DATA = {
 	label: "Add Task",
 	ariaLabel: "Add task",
 	icon: Plus,
 };
 
-/* =========================
-   Sidebar Search
-   ========================= */
 export const SIDEBAR_SEARCH_DATA = {
 	placeholder: "Search",
 	ariaLabel: "Search tasks",
 	icon: Search,
 };
 
-/* =========================
-   Workspace
-   ========================= */
 export const WORKSPACE_DATA = {
 	heading: "Workspace",
 	items: [
@@ -63,9 +51,6 @@ export const WORKSPACE_DATA = {
 	],
 };
 
-/* =========================
-   Projects
-   ========================= */
 export const PROJECTS_DATA = {
 	heading: "Projects",
 	items: [
@@ -85,10 +70,6 @@ export const PROJECTS_DATA = {
 		},
 	],
 };
-
-/* =========================
-   Sidebar Footer
-   ========================= */
 
 export const SIDEBAR_FOOTER_DATA = {
 	items: [

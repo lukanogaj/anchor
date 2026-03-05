@@ -12,7 +12,7 @@ const SidebarFooter = ({ onNewList, onToggle }) => {
 		<div className={styles.footer}>
 			{SIDEBAR_FOOTER_DATA.items.map((item) => {
 				const onClick = actionsMap[item.action];
-
+				if (!onClick) return null;
 				if (item.variant === "row") {
 					return (
 						<SidebarRow

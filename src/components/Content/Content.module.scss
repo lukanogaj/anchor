@@ -28,25 +28,28 @@
 .header {
 	display: flex;
 	justify-content: space-between;
-	align-items: center; /* ✅ important */
-	padding: 2rem 2rem 1.5rem;
+	align-items: center;
+	flex-wrap: wrap; /*  prevent overlap on narrow widths */
+	--right-rail-space: 10.5rem;
+	padding: 2rem var(--right-rail-space) 1.5rem 2rem;
 	gap: 1rem;
 }
 
 .headerLeft {
-	min-width: 0;
+	min-width: 0; /* allow left content to shrink */
 }
 
 .headerRight {
 	display: flex;
 	align-items: center;
 	gap: 1.25rem;
+	flex: 0 0 auto; /*  clock keeps its natural width */
+	margin-left: auto;
 }
 
 /* page content */
 .main {
 	width: 100%;
-	// padding-inline: 2rem;
 	min-width: 0;
 	overflow-y: auto;
 	overflow-x: hidden;

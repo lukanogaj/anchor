@@ -15,7 +15,6 @@ const HeaderUtilities = () => {
 				type='button'
 				className={styles.iconButton}
 				aria-label='Suggestions'>
-				{" "}
 				<LightbulbIcon className={styles.icon} />
 			</button>
 		</div>

@@ -1,24 +1,19 @@
-/* middle stack (Workspace + Projects) */
 .sideBar {
-	width: clamp(24.5rem, 29vw, 26rem);
-	min-width: clamp(24.5rem, 29vw, 26rem);
-	flex: 0 0 clamp(24.5rem, 29vw, 26rem);
-
+	--sidebar-w: clamp(24.5rem, 29vw, 26rem);
+	width: var(--sidebar-w);
+	min-width: var(--sidebar-w);
+	flex: 0 0 var(--sidebar-w);
 	display: flex;
 	flex-direction: column;
 	height: 100%;
 	background-color: var(--bg-sidebar);
-
 	padding: 1.75rem 1.6rem 1.4rem;
 	gap: 1.1rem;
-
 	border-right: 1px solid rgba(255, 255, 255, 0.08);
-
 	font-size: 1.05rem;
 	line-height: 1.45;
 	font-weight: 500;
 	color: rgba(255, 255, 255, 0.94);
-
 	overflow: hidden;
 }
 
@@ -32,6 +27,10 @@
 	overflow-y: auto;
 
 	padding-right: 0.25rem;
+}
+
+.footer {
+	flex: 0 0 auto;
 }
 
 @media (max-width: 48rem) {

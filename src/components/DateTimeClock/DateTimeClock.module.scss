@@ -1,43 +1,35 @@
-.dateTimeClock {
+.dateTime {
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 0.25rem;
 	width: 100%;
-	height: 100%;
-	color: 40%;
+}
 
-	.dateTime {
-		display: flex;
-		width: 90%;
-		height: 100%;
-		flex-direction: column;
+.date {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+}
 
-		.date {
-			display: flex;
-			flex-direction: column;
-			.headDate {
-				display: flex;
-				justify-content: right;
-				font-size: 5rem;
-				color: #ffffff;
-			}
-		}
-		.time {
-			display: flex;
-			justify-content: right;
-			width: 100%;
-			height: 60px;
-			.headTime {
-				display: flex;
-				justify-content: right;
-				color: #fff;
-				& > p {
-					width: 100%;
-					height: 100%;
-					text-align: right;
-					font-size: 3em;
-					color: #b3b2b5;
-				}
-			}
-		}
-	}
+.headDate {
+	margin: 0;
+	font-size: 2rem;
+	font-weight: 700;
+	color: #fff;
+	text-align: right;
+}
+
+.time {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+}
+
+.headTime {
+	margin: 0;
+	font-size: 1.25rem;
+	font-weight: 600;
+	color: rgba(255, 255, 255, 0.7);
+	text-align: right;
 }

@@ -26,27 +26,22 @@ const useTodos = () => {
 		}
 	};
 
-	// Use Realtime updates instead of manual fetching in children
 	useEffect(() => {
 		fetchTodos();
 
-		// Subscribe to any database changes
 		const channel = supabase
 			.channel("public-todos-channel")
 			.on(
 				"postgres_changes",
 				{ event: "*", schema: "public", table: "todos" },
-				(payload) => {
-					console.log("REALTIME EVENT FIRED:", payload);
+				() => {
 					fetchTodos();
 				},
 			)
 			.subscribe();
-
 		return () => supabase.removeChannel(channel);
 	}, []);
 
-	// ADD
 	const addTodo = async (title, description, date) => {
 		const cleanTitle = title?.trim();
 
@@ -72,7 +67,7 @@ const useTodos = () => {
 			await insertTodo({
 				title: cleanTitle,
 				description,
-				due_on: date ?? null, // ← key line for undated
+				due_on: date ?? null,
 			});
 
 			await fetchTodos();
@@ -83,7 +78,6 @@ const useTodos = () => {
 		}
 	};
 
-	//DELETE
 	const deleteTodo = async (id) => {
 		try {
 			await removeTodo(id);
@@ -93,16 +87,13 @@ const useTodos = () => {
 		}
 	};
 
-	// UPDATE
 	const updateTodo = async (id, updates) => {
 		if (!updates || typeof updates !== "object") {
 			return { ok: false, error: "Invalid updates payload" };
 		}
 
-		// Work on a copy (cleaner, avoids mutating caller object)
 		const nextUpdates = { ...updates };
 
-		// If due_on is present, validate or clear
 		if ("due_on" in nextUpdates) {
 			if (nextUpdates.due_on === "") {
 				nextUpdates.due_on = null; // clear date
@@ -128,7 +119,6 @@ const useTodos = () => {
 			return { ok: false, error: "Failed to update todo" };
 		}
 	};
-	// COMPLETE
 	const completeTodo = async (id) => {
 		try {
 			await markTodoComplete(id);

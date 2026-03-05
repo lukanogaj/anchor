@@ -1,4 +1,4 @@
-//“All comparisons are calendar-based (local start-of-day). Time-of-day is ignored.”
+// All date comparisons are normalized to local start-of-day.
 
 export const startOfDay = (date) => {
 	const d = new Date(date);
@@ -61,7 +61,6 @@ export const isWithinFiveYears = (dateStr) => {
 	return due >= min && due <= max;
 };
 
-// Future todos
 export const isFuture = (date) => {
 	if (!date) return false;
 

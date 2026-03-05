@@ -6,7 +6,7 @@ import Workspace from "../Workspace/Workspace";
 import Projects from "../Projects/Projects";
 import SideBarFooter from "../SidebarFooter/SidebarFooter";
 
-const Sidebar = ({ onAddTaskClick }) => {
+const Sidebar = ({ onAddTaskClick = () => {} }) => {
 	return (
 		<aside className={styles.sideBar}>
 			<Header />

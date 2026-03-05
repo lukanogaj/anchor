@@ -21,7 +21,6 @@ const Content = ({ children, onAddTaskClick, appHeaderLeft }) => {
 					<main className={styles.main}>{children}</main>
 				</div>
 
-				{/* ✅ pinned far-right icons */}
 				<div className={styles.rightRail}>
 					<HeaderUtilities />
 				</div>
