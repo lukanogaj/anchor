@@ -1,4 +1,4 @@
-.todayCard {
+.todoRow {
 	background: rgba(255, 255, 255, 0.05);
 	border-radius: 1.125rem;
 	padding: 0.9rem 1rem;
@@ -12,17 +12,18 @@
 	cursor: pointer;
 }
 
-.todayCard:active {
+.todoRow:active {
 	transform: translateY(-1px);
 }
-.todayCard:hover {
+
+.todoRow:hover {
 	transform: translateY(-1px);
 	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
 	border-color: rgba(255, 255, 255, 0.18);
 	background: rgba(255, 255, 255, 0.07);
 }
 
-.todayCard:focus-within {
+.todoRow:focus-within {
 	transform: translateY(-1px);
 	box-shadow: 0 10px 26px rgba(0, 0, 0, 0.26);
 	border-color: rgba(255, 255, 255, 0.14);
@@ -30,24 +31,24 @@
 	outline-offset: 3px;
 }
 
-.completing {
+.todoRowCompleting {
 	opacity: 0.7;
 	transform: translateY(1px);
 }
 
-.completing .title {
+.todoRowCompleting .todoRowTitle {
 	text-decoration: line-through;
 	opacity: 0.9;
 }
 
-.headerToday {
+.todoRowHeader {
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
 	gap: 1rem;
 }
 
-.leftBlock {
+.todoRowLeft {
 	display: flex;
 	align-items: flex-start;
 	gap: 0.75rem;
@@ -55,7 +56,7 @@
 	min-width: 0;
 }
 
-.check {
+.todoRowCheckbox {
 	appearance: none;
 	-webkit-appearance: none;
 
@@ -73,14 +74,12 @@
 	margin-top: 0.32rem;
 }
 
-/* checked state: accent color */
-
-.check:checked {
+.todoRowCheckbox:checked {
 	background: rgba(77, 163, 255, 0.18);
 	border-color: rgba(77, 163, 255, 0.95);
 }
 
-.check:checked::after {
+.todoRowCheckbox:checked::after {
 	content: "";
 	position: absolute;
 	left: 0.42rem;
@@ -92,19 +91,19 @@
 	transform: rotate(45deg);
 }
 
-.check:focus-visible {
+.todoRowCheckbox:focus-visible {
 	outline: none;
 	box-shadow: 0 0 0 3px rgba(77, 163, 255, 0.35);
 }
 
-.textBlock {
+.todoRowText {
 	min-width: 0;
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 }
 
-.title {
+.todoRowTitle {
 	color: #fff;
 	font-size: 1.1rem;
 	font-weight: 600;
@@ -113,30 +112,30 @@
 	cursor: pointer;
 }
 
-.metaRow {
+.todoRowMeta {
 	display: flex;
 	align-items: center;
 	gap: 0.625rem;
 	font-size: 0.75rem;
 }
 
-.dotWrap {
+.todoRowDotWrap {
 	display: inline-flex;
 	align-items: center;
 }
 
-.dot {
+.todoRowDot {
 	width: 0.9rem;
 	height: 0.9rem;
 	color: rgba(255, 255, 255, 0.35);
 	opacity: 0.28;
 }
 
-.dayCat {
+.todoRowListName {
 	color: rgba(255, 255, 255, 0.55);
 }
 
-.actions {
+.todoRowActions {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
@@ -145,14 +144,14 @@
 	flex-shrink: 0;
 }
 
-.topActions,
-.bottomActions {
+.todoRowActionsTop,
+.todoRowActionsBottom {
 	display: flex;
 	align-items: center;
 	gap: 0.625rem;
 }
 
-.iconBtn {
+.todoRowIconButton {
 	background: transparent;
 	border: 0;
 	padding: 0.25rem;
@@ -169,55 +168,55 @@
 		box-shadow 140ms ease;
 }
 
-.iconBtn svg {
+.todoRowIconButton svg {
 	width: 1.25rem;
 	height: 1.25rem;
 }
 
-.iconBtn:hover:not(:disabled) {
+.todoRowIconButton:hover:not(:disabled) {
 	background: rgba(255, 255, 255, 0.08);
 	color: rgba(255, 255, 255, 1);
 }
 
-.iconBtn:active:not(:disabled) {
+.todoRowIconButton:active:not(:disabled) {
 	transform: translateY(1px);
 }
 
-.iconBtn:focus-visible {
+.todoRowIconButton:focus-visible {
 	outline: none;
 	box-shadow: 0 0 0 3px rgba(110, 140, 170, 0.28);
 }
 
-.iconBtn:disabled {
+.todoRowIconButton:disabled {
 	opacity: 0.5;
 	cursor: not-allowed;
 }
 
-.icon {
+.todoRowIcon {
 	display: block;
 	width: 1.25rem;
 	height: 1.25rem;
 	transition: transform 160ms ease;
 }
 
-.chevronOpen {
+.todoRowChevronOpen {
 	transform: rotate(180deg);
 }
 
-.details {
+.todoRowDetails {
 	margin-top: 0.75rem;
 	padding-top: 0.75rem;
 	border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.description {
+.todoRowDescription {
 	margin: 0;
 	color: rgba(255, 255, 255, 0.75);
 	font-size: 0.9rem;
 	line-height: 1.35;
 }
 
-.descriptionEmpty {
+.todoRowDescriptionEmpty {
 	margin: 0;
 	opacity: 0.55;
 	font-size: 0.9rem;
@@ -225,12 +224,12 @@
 }
 
 @media (max-width: 32.5rem) {
-	.headerToday {
+	.todoRowHeader {
 		flex-direction: column;
 		align-items: stretch;
 	}
 
-	.actions {
+	.todoRowActions {
 		align-items: flex-start;
 		flex-direction: row;
 		flex-wrap: wrap;

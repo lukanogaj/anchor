@@ -15,9 +15,8 @@
 // 		};
 // 	}, []);
 
-// 	if (!todo) {
-// 		return <div className={styles.error}>NO TODO PASSED</div>;
-// 	}
+// 	// Pass 1 cleanup: avoid shouty debug UI / keep component safe.
+// 	if (!todo) return null;
 
 // 	const { completeTodo, updateTodo } = actions;
 
@@ -156,7 +155,6 @@
 // };
 
 // export default TodoRow;
-
 import styles from "./TodoRow.module.scss";
 import { Dots, Dot, Star, Watch, ChevronDown } from "../images/icons/Icons";
 import { useEffect, useRef, useState } from "react";
@@ -174,7 +172,6 @@ const TodoRow = ({ todo, actions }) => {
 		};
 	}, []);
 
-	// Pass 1 cleanup: avoid shouty debug UI / keep component safe.
 	if (!todo) return null;
 
 	const { completeTodo, updateTodo } = actions;
@@ -225,12 +222,12 @@ const TodoRow = ({ todo, actions }) => {
 
 	return (
 		<div
-			className={`${styles.todayCard} ${isCompleting ? styles.completing : ""}`}>
-			<div className={styles.headerToday}>
-				<div className={styles.leftBlock}>
+			className={`${styles.todoRow} ${isCompleting ? styles.todoRowCompleting : ""}`}>
+			<div className={styles.todoRowHeader}>
+				<div className={styles.todoRowLeft}>
 					<input
 						id={`todo-${todo.id}`}
-						className={styles.check}
+						className={styles.todoRowCheckbox}
 						type='checkbox'
 						checked={isDoneVisual}
 						onChange={onComplete}
@@ -238,74 +235,76 @@ const TodoRow = ({ todo, actions }) => {
 						aria-label={`Mark ${todo.title} as complete`}
 					/>
 
-					<div className={styles.textBlock}>
+					<div className={styles.todoRowText}>
 						<label
-							className={styles.title}
+							className={styles.todoRowTitle}
 							htmlFor={`todo-${todo.id}`}>
 							{todo.title}
 						</label>
 
-						<div className={styles.metaRow}>
-							<span className={styles.dotWrap}>
-								<Dot className={styles.dot} />
+						<div className={styles.todoRowMeta}>
+							<span className={styles.todoRowDotWrap}>
+								<Dot className={styles.todoRowDot} />
 							</span>
-							<span className={styles.dayCat}>{todo.listName ?? "Tasks"}</span>
+							<span className={styles.todoRowListName}>
+								{todo.listName ?? "Tasks"}
+							</span>
 						</div>
 					</div>
 				</div>
 
-				<div className={styles.actions}>
-					<div className={styles.topActions}>
+				<div className={styles.todoRowActions}>
+					<div className={styles.todoRowActionsTop}>
 						<button
 							type='button'
-							className={styles.iconBtn}
+							className={styles.todoRowIconButton}
 							onClick={() => setIsExpanded((v) => !v)}
 							disabled={isCompleting}
 							aria-label={isExpanded ? "Collapse details" : "Expand details"}
 							aria-expanded={isExpanded}>
 							<ChevronDown
-								className={`${styles.icon} ${
-									isExpanded ? styles.chevronOpen : ""
+								className={`${styles.todoRowIcon} ${
+									isExpanded ? styles.todoRowChevronOpen : ""
 								}`}
 							/>
 						</button>
 
 						<button
 							type='button'
-							className={styles.iconBtn}
+							className={styles.todoRowIconButton}
 							onClick={onEdit}
 							disabled={isCompleting}
 							aria-label='More actions'>
-							<Dots className={styles.icon} />
+							<Dots className={styles.todoRowIcon} />
 						</button>
 					</div>
 
-					<div className={styles.bottomActions}>
+					<div className={styles.todoRowActionsBottom}>
 						<button
 							type='button'
-							className={styles.iconBtn}
+							className={styles.todoRowIconButton}
 							disabled
 							aria-label='Star (coming soon)'>
-							<Star className={styles.icon} />
+							<Star className={styles.todoRowIcon} />
 						</button>
 
 						<button
 							type='button'
-							className={styles.iconBtn}
+							className={styles.todoRowIconButton}
 							disabled
 							aria-label='Schedule (coming soon)'>
-							<Watch className={styles.icon} />
+							<Watch className={styles.todoRowIcon} />
 						</button>
 					</div>
 				</div>
 			</div>
 
 			{isExpanded && (
-				<div className={styles.details}>
+				<div className={styles.todoRowDetails}>
 					{todo.description?.trim() ? (
-						<p className={styles.description}>{todo.description}</p>
+						<p className={styles.todoRowDescription}>{todo.description}</p>
 					) : (
-						<p className={styles.descriptionEmpty}>No description</p>
+						<p className={styles.todoRowDescriptionEmpty}>No description</p>
 					)}
 				</div>
 			)}
