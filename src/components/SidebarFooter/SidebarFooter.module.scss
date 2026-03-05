@@ -1,4 +1,4 @@
-.footer {
+.sidebarFooter {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -7,24 +7,24 @@
 	padding: 1.25rem;
 }
 
-.newListBtn {
+.sidebarFooterNewList {
 	flex: 1;
 	justify-content: flex-start;
 	background: transparent;
 }
 
-/* keep right icon button */
-.rightBtn {
+.sidebarFooterActionButton {
 	background: transparent;
 	border: 0;
 	cursor: pointer;
 	opacity: 0.85;
 
-	/* give it a consistent hit area */
 	width: 2.25rem;
 	height: 2.25rem;
+
 	display: grid;
 	place-items: center;
+
 	border-radius: 0.75rem;
 
 	&:hover {
@@ -32,7 +32,7 @@
 	}
 }
 
-.icon {
+.sidebarFooterIcon {
 	width: 1.1em;
 	height: 1.1em;
 	flex-shrink: 0;

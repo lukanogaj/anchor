@@ -9,10 +9,11 @@ const SidebarFooter = ({ onNewList, onToggle }) => {
 	};
 
 	return (
-		<div className={styles.footer}>
+		<div className={styles.sidebarFooter}>
 			{SIDEBAR_FOOTER_DATA.items.map((item) => {
 				const onClick = actionsMap[item.action];
 				if (!onClick) return null;
+
 				if (item.variant === "row") {
 					return (
 						<SidebarRow
@@ -20,7 +21,7 @@ const SidebarFooter = ({ onNewList, onToggle }) => {
 							icon={item.icon}
 							label={item.label}
 							onClick={onClick}
-							className={styles.newListBtn}
+							className={styles.sidebarFooterNewList}
 						/>
 					);
 				}
@@ -29,10 +30,10 @@ const SidebarFooter = ({ onNewList, onToggle }) => {
 					<button
 						key={item.id}
 						type='button'
-						className={styles.rightBtn}
+						className={styles.sidebarFooterActionButton}
 						onClick={onClick}
 						aria-label={item.ariaLabel}>
-						<item.icon className={styles.icon} />
+						<item.icon className={styles.sidebarFooterIcon} />
 					</button>
 				);
 			})}
