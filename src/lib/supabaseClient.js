@@ -1,24 +1,3 @@
-// import { createClient } from "@supabase/supabase-js";
-
-// const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
-// const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
-
-// if (!supabaseUrl || !supabaseAnonKey) {
-// 	throw new Error(
-// 		"Missing Supabase environment variables. Check your .env file and restart the dev server.",
-// 	);
-// }
-
-// // Create a single Supabase instance
-// let supabase;
-
-// if (!window.__supabase__) {
-// 	window.__supabase__ = createClient(supabaseUrl, supabaseAnonKey);
-// }
-
-// supabase = window.__supabase__;
-
-// export default supabase;
 import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
