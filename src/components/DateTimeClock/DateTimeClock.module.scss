@@ -1,4 +1,39 @@
-.dateTime {
+// .dateTime {
+// 	display: flex;
+// 	flex-direction: column;
+// 	align-items: flex-end;
+// 	gap: 0.25rem;
+// 	width: 100%;
+// }
+
+// .date {
+// 	display: flex;
+// 	justify-content: flex-end;
+// 	width: 100%;
+// }
+
+// .headDate {
+// 	margin: 0;
+// 	font-size: 2rem;
+// 	font-weight: 700;
+// 	color: #fff;
+// 	text-align: right;
+// }
+
+// .time {
+// 	display: flex;
+// 	justify-content: flex-end;
+// 	width: 100%;
+// }
+
+// .headTime {
+// 	margin: 0;
+// 	font-size: 1.25rem;
+// 	font-weight: 600;
+// 	color: rgba(255, 255, 255, 0.7);
+// 	text-align: right;
+// }
+.dateTimeClock {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
@@ -6,13 +41,13 @@
 	width: 100%;
 }
 
-.date {
+.dateTimeClockDate {
 	display: flex;
 	justify-content: flex-end;
 	width: 100%;
 }
 
-.headDate {
+.dateTimeClockDateText {
 	margin: 0;
 	font-size: 2rem;
 	font-weight: 700;
@@ -20,13 +55,13 @@
 	text-align: right;
 }
 
-.time {
+.dateTimeClockTime {
 	display: flex;
 	justify-content: flex-end;
 	width: 100%;
 }
 
-.headTime {
+.dateTimeClockTimeText {
 	margin: 0;
 	font-size: 1.25rem;
 	font-weight: 600;
