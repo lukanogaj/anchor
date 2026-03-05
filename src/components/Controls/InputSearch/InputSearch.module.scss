@@ -1,8 +1,7 @@
-.search {
+.searchContainer {
 	width: 100%;
 	position: relative;
 
-	/* same “row box model” */
 	min-height: 3rem;
 	padding: 0.65rem 0.75rem;
 	border-radius: 0.6rem;
@@ -11,33 +10,30 @@
 	border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.search:focus-within {
+.searchContainer:focus-within {
 	border-color: rgba(155, 205, 219, 0.35);
 	background: rgba(255, 255, 255, 0.07);
 }
 
-.input {
+.searchInput {
 	width: 100%;
 	border: 0;
 	outline: none;
 
-	/* input no longer “owns” the box */
 	background: transparent;
 
-	/* line-up with row typography */
 	font: inherit;
 	line-height: 1.2;
 
-	/* leave space for icon */
 	padding-right: 2.25rem;
 }
 
-.input::placeholder {
+.searchInput::placeholder {
 	color: var(--text-muted);
 	font-weight: 500;
 }
 
-.searchIcon {
+.searchInputIcon {
 	position: absolute;
 	right: 0.75rem;
 	top: 50%;
@@ -46,5 +42,6 @@
 	width: 1.1em;
 	height: 1.1em;
 	color: rgba(255, 255, 255, 0.55);
+
 	pointer-events: none;
 }

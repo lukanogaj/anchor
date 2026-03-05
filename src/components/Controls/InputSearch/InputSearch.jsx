@@ -5,16 +5,16 @@ const InputSearch = () => {
 	const { placeholder, ariaLabel, icon: Icon } = SIDEBAR_SEARCH_DATA;
 
 	return (
-		<div className={styles.search}>
+		<div className={styles.searchContainer}>
 			<input
 				type='search'
 				placeholder={placeholder}
 				aria-label={ariaLabel}
 				name='search'
 				autoComplete='off'
-				className={styles.input}
+				className={styles.searchInput}
 			/>
-			<Icon className={styles.searchIcon} />
+			<Icon className={styles.searchInputIcon} />
 		</div>
 	);
 };
