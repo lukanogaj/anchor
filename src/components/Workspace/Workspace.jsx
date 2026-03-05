@@ -6,10 +6,10 @@ const Workspace = () => {
 	const { heading, items } = WORKSPACE_DATA;
 
 	return (
-		<section className={styles.workspace}>
-			<h4 className={styles.heading}>{heading}</h4>
+		<section className={styles.workspaceSection}>
+			<h4 className={styles.workspaceHeading}>{heading}</h4>
 
-			<div className={styles.list}>
+			<div className={styles.workspaceList}>
 				{items.map(({ id, label, icon, count, active }) => (
 					<SidebarRow
 						key={id}
