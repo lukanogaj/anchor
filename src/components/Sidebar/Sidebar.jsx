@@ -8,17 +8,17 @@ import SideBarFooter from "../SidebarFooter/SidebarFooter";
 
 const Sidebar = ({ onAddTaskClick = () => {} }) => {
 	return (
-		<aside className={styles.sideBar}>
+		<aside className={styles.sidebar}>
 			<Header />
 			<AddTaskControl onOpen={onAddTaskClick} />
 			<SearchControl />
 
-			<div className={styles.main}>
+			<div className={styles.sidebarMain}>
 				<Workspace />
 				<Projects />
 			</div>
 
-			<div className={styles.footer}>
+			<div className={styles.sidebarFooter}>
 				<SideBarFooter />
 			</div>
 		</aside>

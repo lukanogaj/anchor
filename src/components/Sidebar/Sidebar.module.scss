@@ -1,4 +1,4 @@
-.sideBar {
+.sidebar {
 	--sidebar-w: clamp(24.5rem, 29vw, 26rem);
 	width: var(--sidebar-w);
 	min-width: var(--sidebar-w);
@@ -17,7 +17,7 @@
 	overflow: hidden;
 }
 
-.main {
+.sidebarMain {
 	display: flex;
 	flex-direction: column;
 	gap: 1.75rem;
@@ -29,12 +29,12 @@
 	padding-right: 0.25rem;
 }
 
-.footer {
+.sidebarFooter {
 	flex: 0 0 auto;
 }
 
 @media (max-width: 48rem) {
-	.sideBar {
+	.sidebar {
 		display: none;
 	}
 }
