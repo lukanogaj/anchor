@@ -1,4 +1,4 @@
-.row {
+.sidebarRow {
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -12,18 +12,18 @@
 	transition: background 120ms ease;
 }
 
-.row:hover {
+.sidebarRow:hover {
 	background: rgba(255, 255, 255, 0.04);
 }
 
-.left {
+.sidebarRowLeft {
 	display: flex;
 	align-items: center;
 	gap: 0.75rem;
 	min-width: 0;
 }
 
-.icon {
+.sidebarRowIcon {
 	width: 2.25em;
 	height: 2.25em;
 
@@ -32,31 +32,30 @@
 	flex: 0 0 2.25em;
 }
 
-.icon svg {
+.sidebarRowIcon svg {
 	width: 1em;
 	height: 1em;
 }
 
-.label {
-	/* inherit sidebar font-size (1.05rem) */
+.sidebarRowLabel {
 	line-height: 1.2;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
-.count {
+.sidebarRowCount {
 	font-size: 0.9em;
 	color: var(--text-muted);
 	opacity: 1;
 }
 
-.active {
+.sidebarRowActive {
 	background: rgba(255, 255, 255, 0.06);
 	position: relative;
 }
 
-.active::before {
+.sidebarRowActive::before {
 	content: "";
 	position: absolute;
 	left: -0.75rem;
@@ -67,10 +66,10 @@
 	background: rgba(255, 255, 255, 0.85);
 }
 
-.accent_blue .icon {
+.sidebarRowAccent_blue .sidebarRowIcon {
 	color: #4da3ff;
 }
 
-.accent_green .icon {
+.sidebarRowAccent_green .sidebarRowIcon {
 	color: #42d392;
 }

@@ -9,9 +9,9 @@ const SidebarRow = ({
 	onClick,
 }) => {
 	const className = [
-		styles.row,
-		active && styles.active,
-		accent && styles[`accent_${accent}`],
+		styles.sidebarRow,
+		active && styles.sidebarRowActive,
+		accent && styles[`sidebarRowAccent_${accent}`],
 	]
 		.filter(Boolean)
 		.join(" ");
@@ -21,15 +21,15 @@ const SidebarRow = ({
 			type='button'
 			className={className}
 			onClick={onClick}>
-			<span className={styles.left}>
-				<span className={styles.icon}>
+			<span className={styles.sidebarRowLeft}>
+				<span className={styles.sidebarRowIcon}>
 					<Icon />
 				</span>
-				<span className={styles.label}>{label}</span>
+				<span className={styles.sidebarRowLabel}>{label}</span>
 			</span>
 
 			{typeof count === "number" && (
-				<span className={styles.count}>{count}</span>
+				<span className={styles.sidebarRowCount}>{count}</span>
 			)}
 		</button>
 	);
