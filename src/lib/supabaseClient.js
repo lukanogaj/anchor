@@ -1,17 +1,44 @@
 // import { createClient } from "@supabase/supabase-js";
 
-// const supabaseUrl = "https://fjsgarigrfjsuwzxojvm.supabase.co";
-// const supabaseAnonKey = "sb_publishable_h-dtPRNvuhw_-BQ1awDXgA_jmwJK8Sq";
+// const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+// const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
 
-// const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// if (!supabaseUrl || !supabaseAnonKey) {
+// 	throw new Error(
+// 		"Missing Supabase environment variables. Check your .env file and restart the dev server.",
+// 	);
+// }
+
+// // Create a single Supabase instance
+// let supabase;
+
+// if (!window.__supabase__) {
+// 	window.__supabase__ = createClient(supabaseUrl, supabaseAnonKey);
+// }
+
+// supabase = window.__supabase__;
 
 // export default supabase;
-
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
 
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+if (!supabaseUrl || !supabaseAnonKey) {
+	throw new Error(
+		"Missing Supabase environment variables. Check your .env file and restart the dev server.",
+	);
+}
+
+// React Fast Refresh (dev) can re-run modules.
+// Cache the client on window to avoid multiple GoTrueClient instances.
+if (!window.__ANCHOR_SUPABASE_CLIENT__) {
+	window.__ANCHOR_SUPABASE_CLIENT__ = createClient(
+		supabaseUrl,
+		supabaseAnonKey,
+	);
+}
+
+const supabase = window.__ANCHOR_SUPABASE_CLIENT__;
 
 export default supabase;

@@ -4,9 +4,11 @@ import TodoRow from "../../components/TodoRow/TodoRow";
 const Section = ({ title, emptyText, todos, actions, variant }) => {
 	const isEmpty = !todos || todos.length === 0;
 
+	const variantClass =
+		variant && styles[variant] ? styles[variant] : "";
+
 	return (
-		<div
-			className={`${styles.section} ${variant && styles[variant] ? styles[variant] : ""}`}>
+		<div className={`${styles.section} ${variantClass}`}>
 			<div className={styles.sectionHeader}>
 				<h2 className={styles.sectionTitle}>{title}</h2>
 			</div>
@@ -52,6 +54,7 @@ const MyDayPage = ({
 					todos={todayTodos}
 					actions={actions}
 				/>
+
 				<Section
 					title='Upcoming'
 					emptyText='No upcoming tasks'
