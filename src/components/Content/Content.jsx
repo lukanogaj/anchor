@@ -1,51 +1,17 @@
-// import styles from "./Content.module.scss";
-// import Sidebar from "../../components/Sidebar/Sidebar";
-// import DateTimeClock from "../DateTimeClock/DateTimeClock";
-// import HeaderUtilities from "../HeaderUtilities/HeaderUtilities";
-
-// const Content = ({ children, onAddTaskClick, appHeaderLeft }) => {
-// 	return (
-// 		<div className={styles.content}>
-// 			<Sidebar onAddTaskClick={onAddTaskClick} />
-
-// 			<div className={styles.mainWrapper}>
-// 				<div className={styles.inner}>
-// 					<header className={styles.header}>
-// 						<div className={styles.headerLeft}>{appHeaderLeft}</div>
-
-// 						<div className={styles.headerRight}>
-// 							<DateTimeClock />
-// 						</div>
-// 					</header>
-
-// 					<main className={styles.main}>{children}</main>
-// 				</div>
-
-// 				<div className={styles.rightRail}>
-// 					<HeaderUtilities />
-// 				</div>
-// 			</div>
-// 		</div>
-// 	);
-// };
-
-// export default Content;
-
-
 import styles from "./Content.module.scss";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import DateTimeClock from "../DateTimeClock/DateTimeClock";
 import HeaderUtilities from "../HeaderUtilities/HeaderUtilities";
 
-const Content = ({ children, onAddTaskClick, appHeaderLeft }) => {
+const Content = ({ children, onOpenAddTask, headerLeftContent }) => {
 	return (
 		<div className={styles.contentLayout}>
-			<Sidebar onAddTaskClick={onAddTaskClick} />
+			<Sidebar onOpenAddTask={onOpenAddTask} />
 
 			<div className={styles.contentMain}>
 				<div className={styles.contentColumn}>
 					<header className={styles.contentHeader}>
-						<div className={styles.contentHeaderLeft}>{appHeaderLeft}</div>
+						<div className={styles.headerLeft}>{headerLeftContent}</div>
 
 						<div className={styles.contentHeaderRight}>
 							<DateTimeClock />

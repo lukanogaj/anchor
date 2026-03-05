@@ -1,61 +1,3 @@
-// import { useState } from "react";
-// import Content from "../../components/Content/Content";
-// import styles from "./MyDayContainer.module.scss";
-// import MyDayPage from "../../pages/MyDay/MyDayPage";
-// import {
-// 	useTodos,
-// 	useOverdueTodos,
-// 	useTodayTodos,
-// 	useUpcomingTodos,
-// 	useUndatedTodos,
-// } from "../../features/hooks";
-// import AddTodoModal from "../../components/AddTodoModal/AddTodoModal";
-// const MyDayContainer = () => {
-// 	const { todos, deleteTodo, updateTodo, completeTodo, addTodo } = useTodos();
-
-// 	const overdueTodos = useOverdueTodos(todos);
-// 	const todayTodos = useTodayTodos(todos);
-
-// 	const upcomingTodos = useUpcomingTodos(todos);
-// 	const undatedTodos = useUndatedTodos(todos);
-
-// 	const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
-
-// 	const openAddTask = () => setIsAddTaskOpen(true);
-// 	const closeAddTask = () => setIsAddTaskOpen(false);
-
-// 	const actions = {
-// 		deleteTodo,
-// 		updateTodo,
-// 		completeTodo,
-// 	};
-
-// 	return (
-// 		<div className={styles.myDayContainer}>
-// 			<Content
-// 				onAddTaskClick={openAddTask}
-// 				appHeaderLeft={<h1>My Day</h1>}>
-// 				<MyDayPage
-// 					overdueTodos={overdueTodos}
-// 					todayTodos={todayTodos}
-// 					upcomingTodos={upcomingTodos}
-// 					undatedTodos={undatedTodos}
-// 					actions={actions}
-// 				/>
-
-// 				{isAddTaskOpen && (
-// 					<AddTodoModal
-// 						addTodo={addTodo}
-// 						onClose={closeAddTask}
-// 					/>
-// 				)}
-// 			</Content>
-// 		</div>
-// 	);
-// };
-
-// export default MyDayContainer;
-
 import { useState } from "react";
 import styles from "./MyDayContainer.module.scss";
 
@@ -93,8 +35,8 @@ const MyDayContainer = () => {
 	return (
 		<div className={styles.myDayContainer}>
 			<Content
-				onAddTaskClick={openAddTask}
-				appHeaderLeft={<h1>My Day</h1>}>
+				onOpenAddTask={openAddTask}
+				headerLeftContent={<h1>My Day</h1>}>
 				<MyDayPage
 					overdueTodos={overdueTodos}
 					todayTodos={todayTodos}

@@ -6,11 +6,11 @@ import Workspace from "../Workspace/Workspace";
 import Projects from "../Projects/Projects";
 import SideBarFooter from "../SidebarFooter/SidebarFooter";
 
-const Sidebar = ({ onAddTaskClick = () => {} }) => {
+const Sidebar = ({ onOpenAddTask = () => {} }) => {
 	return (
 		<aside className={styles.sidebar}>
 			<Header />
-			<AddTaskControl onOpen={onAddTaskClick} />
+			<AddTaskControl onOpen={onOpenAddTask} />
 			<SearchControl />
 
 			<div className={styles.sidebarMain}>
