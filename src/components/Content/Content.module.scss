@@ -1,4 +1,68 @@
-.content {
+// .content {
+// 	display: flex;
+// 	height: 100%;
+// 	width: 100%;
+// 	background-color: var(--bg-app);
+// 	overflow: hidden;
+// }
+
+// /* Sidebar + main area */
+// .mainWrapper {
+// 	flex: 1;
+// 	display: flex;
+// 	justify-content: center;
+// 	min-width: 0;
+// 	position: relative; /* anchor for rightRail */
+// }
+
+// /* clamped column */
+// .inner {
+// 	width: clamp(72rem, 82vw, 88rem);
+// 	margin: 0 auto;
+// 	display: flex;
+// 	flex-direction: column;
+// 	min-width: 0;
+// }
+
+// /* header aligned with main padding */
+// .header {
+// 	display: flex;
+// 	justify-content: space-between;
+// 	align-items: center;
+// 	flex-wrap: wrap; /*  prevent overlap on narrow widths */
+// 	--right-rail-space: 10.5rem;
+// 	padding: 2rem var(--right-rail-space) 1.5rem 2rem;
+// 	gap: 1rem;
+// }
+
+// .headerLeft {
+// 	min-width: 0; /* allow left content to shrink */
+// }
+
+// .headerRight {
+// 	display: flex;
+// 	align-items: center;
+// 	gap: 1.25rem;
+// 	flex: 0 0 auto; /*  clock keeps its natural width */
+// 	margin-left: auto;
+// }
+
+// /* page content */
+// .main {
+// 	width: 100%;
+// 	min-width: 0;
+// 	overflow-y: auto;
+// 	overflow-x: hidden;
+// }
+
+// .rightRail {
+// 	position: absolute;
+// 	top: 2rem; /* same as header top padding */
+// 	right: 2rem; /* same as header side padding */
+// 	display: flex;
+// 	align-items: center;
+// }
+.contentLayout {
 	display: flex;
 	height: 100%;
 	width: 100%;
@@ -7,16 +71,16 @@
 }
 
 /* Sidebar + main area */
-.mainWrapper {
+.contentMain {
 	flex: 1;
 	display: flex;
 	justify-content: center;
 	min-width: 0;
-	position: relative; /* anchor for rightRail */
+	position: relative;
 }
 
 /* clamped column */
-.inner {
+.contentColumn {
 	width: clamp(72rem, 82vw, 88rem);
 	margin: 0 auto;
 	display: flex;
@@ -25,40 +89,40 @@
 }
 
 /* header aligned with main padding */
-.header {
+.contentHeader {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	flex-wrap: wrap; /*  prevent overlap on narrow widths */
+	flex-wrap: wrap;
 	--right-rail-space: 10.5rem;
 	padding: 2rem var(--right-rail-space) 1.5rem 2rem;
 	gap: 1rem;
 }
 
-.headerLeft {
-	min-width: 0; /* allow left content to shrink */
+.contentHeaderLeft {
+	min-width: 0;
 }
 
-.headerRight {
+.contentHeaderRight {
 	display: flex;
 	align-items: center;
 	gap: 1.25rem;
-	flex: 0 0 auto; /*  clock keeps its natural width */
+	flex: 0 0 auto;
 	margin-left: auto;
 }
 
 /* page content */
-.main {
+.contentBody {
 	width: 100%;
 	min-width: 0;
 	overflow-y: auto;
 	overflow-x: hidden;
 }
 
-.rightRail {
+.contentRightRail {
 	position: absolute;
-	top: 2rem; /* same as header top padding */
-	right: 2rem; /* same as header side padding */
+	top: 2rem;
+	right: 2rem;
 	display: flex;
 	align-items: center;
 }
