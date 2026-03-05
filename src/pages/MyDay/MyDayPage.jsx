@@ -4,19 +4,18 @@ import TodoRow from "../../components/TodoRow/TodoRow";
 const Section = ({ title, emptyText, todos, actions, variant }) => {
 	const isEmpty = !todos || todos.length === 0;
 
-	const variantClass =
-		variant && styles[variant] ? styles[variant] : "";
+	const variantClass = variant && styles[variant] ? styles[variant] : "";
 
 	return (
-		<div className={`${styles.section} ${variantClass}`}>
-			<div className={styles.sectionHeader}>
-				<h2 className={styles.sectionTitle}>{title}</h2>
+		<div className={`${styles.myDaySection} ${variantClass}`}>
+			<div className={styles.myDaySectionHeader}>
+				<h2 className={styles.myDaySectionTitle}>{title}</h2>
 			</div>
 
 			{isEmpty ? (
-				<p className={styles.emptyText}>{emptyText}</p>
+				<p className={styles.myDaySectionEmpty}>{emptyText}</p>
 			) : (
-				<div className={styles.todosList}>
+				<div className={styles.myDaySectionList}>
 					{todos.map((todo) => (
 						<TodoRow
 							key={todo.id}
@@ -39,13 +38,13 @@ const MyDayPage = ({
 }) => {
 	return (
 		<section className={styles.myDayPage}>
-			<div className={styles.myDayContent}>
+			<div className={styles.myDayPageContent}>
 				<Section
 					title='Overdue'
 					emptyText='No overdue tasks 🎉'
 					todos={overdueTodos}
 					actions={actions}
-					variant='overdue'
+					variant='myDaySectionOverdue'
 				/>
 
 				<Section
@@ -60,7 +59,7 @@ const MyDayPage = ({
 					emptyText='No upcoming tasks'
 					todos={upcomingTodos}
 					actions={actions}
-					variant='upcoming'
+					variant='myDaySectionUpcoming'
 				/>
 
 				<Section
@@ -68,7 +67,7 @@ const MyDayPage = ({
 					emptyText='No tasks without a date'
 					todos={undatedTodos}
 					actions={actions}
-					variant='undated'
+					variant='myDaySectionUndated'
 				/>
 			</div>
 		</section>

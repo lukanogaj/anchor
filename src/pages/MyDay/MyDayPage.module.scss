@@ -1,9 +1,10 @@
+
 .myDayPage {
 	width: 100%;
 	padding: 2.5rem 0;
 }
 
-.myDayContent {
+.myDayPageContent {
 	width: 100%;
 	max-width: 84rem;
 	margin-inline: auto;
@@ -11,7 +12,7 @@
 	gap: 1.5rem;
 }
 
-.section {
+.myDaySection {
 	width: 100%;
 	border-radius: 16px;
 	background: rgba(255, 255, 255, 0.04);
@@ -29,7 +30,7 @@
 	}
 }
 
-.sectionHeader {
+.myDaySectionHeader {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -37,7 +38,7 @@
 	border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.sectionTitle {
+.myDaySectionTitle {
 	margin: 0;
 	font-size: 1.05rem;
 	font-weight: 600;
@@ -45,23 +46,20 @@
 	opacity: 1;
 }
 
-.todosList {
+.myDaySectionList {
 	padding: 1rem 1.25rem;
 	display: grid;
 	gap: 0.75rem;
 }
 
-.emptyText {
+.myDaySectionEmpty {
 	padding: 1rem 1.25rem;
 	margin: 0;
 	opacity: 0.7;
 }
 
-/* ==============================
-   Section variants
-   ============================== */
-
-.overdue {
+/* variants */
+.myDaySectionOverdue {
 	background:
 		linear-gradient(
 			90deg,
@@ -72,7 +70,7 @@
 		rgba(255, 255, 255, 0.04);
 }
 
-.upcoming {
+.myDaySectionUpcoming {
 	background:
 		linear-gradient(
 			90deg,
@@ -83,7 +81,7 @@
 		rgba(255, 255, 255, 0.04);
 }
 
-.undated {
+.myDaySectionUndated {
 	background:
 		linear-gradient(
 			90deg,
@@ -94,7 +92,7 @@
 		rgba(255, 255, 255, 0.04);
 }
 
-.overdue .sectionHeader {
+.myDaySectionOverdue .myDaySectionHeader {
 	background: linear-gradient(
 		90deg,
 		rgba(231, 76, 60, 0.18) 0%,
@@ -103,7 +101,7 @@
 	);
 }
 
-.upcoming .sectionHeader {
+.myDaySectionUpcoming .myDaySectionHeader {
 	background: linear-gradient(
 		90deg,
 		rgba(59, 130, 246, 0.18) 0%,
@@ -112,7 +110,7 @@
 	);
 }
 
-.undated .sectionHeader {
+.myDaySectionUndated .myDaySectionHeader {
 	background: linear-gradient(
 		90deg,
 		rgba(156, 163, 175, 0.15) 0%,
