@@ -1,5 +1,6 @@
 .contentLayout {
 	display: flex;
+	flex-wrap: wrap; /* mobile stacking */
 	height: 100%;
 	width: 100%;
 	background-color: var(--bg-app);
@@ -30,12 +31,14 @@
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
+
 	--right-rail-space: 10.5rem;
+
 	padding: 2rem var(--right-rail-space) 1.5rem 2rem;
 	gap: 1rem;
 }
 
-.headerLeft {
+.contentHeaderLeft {
 	min-width: 0;
 }
 
@@ -55,10 +58,44 @@
 	overflow-x: hidden;
 }
 
+/* utilities rail */
 .contentRightRail {
 	position: absolute;
 	top: 2rem;
 	right: 2rem;
 	display: flex;
 	align-items: center;
+}
+
+/* =========================
+   Mobile responsiveness
+   ========================= */
+
+@media (max-width: 64rem) {
+	.contentColumn {
+		width: 100%;
+		padding: 0 1rem;
+	}
+}
+
+@media (max-width: 48rem) {
+	.contentLayout {
+		flex-direction: column;
+	}
+
+	.contentHeader {
+		padding: 1.5rem 1rem 1rem;
+	}
+
+	.contentRightRail {
+		display: none;
+	}
+}
+
+@media (max-width: 32.5rem) {
+	.contentHeader {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.75rem;
+	}
 }
