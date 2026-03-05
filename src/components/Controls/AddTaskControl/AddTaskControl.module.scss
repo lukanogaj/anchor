@@ -1,9 +1,10 @@
-.addTaskControl {
+.addTaskButton {
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 	gap: 0.85rem;
+
 	padding: 0.75rem 0.85rem;
 	min-height: 3.25rem;
 
@@ -13,38 +14,39 @@
 
 	cursor: pointer;
 
-	/* inherit sidebar typography */
 	color: var(--accent);
+
 	transition: background 120ms ease;
 }
 
-.addTaskControl:hover {
+.addTaskButton:hover {
 	background: rgba(255, 255, 255, 0.04);
 }
 
-.addTaskControl:focus-visible {
+.addTaskButton:focus-visible {
 	outline: 2px solid rgba(155, 205, 219, 0.35);
 	outline-offset: 2px;
 }
 
-.iconWrap {
+.addTaskIconWrapper {
 	width: 2.25em;
 	height: 2.25em;
+
 	display: grid;
 	place-items: center;
+
 	flex: 0 0 2.25em;
 }
 
-.icon {
+.addTaskIcon {
 	width: 1em;
 	height: 1em;
 	display: block;
 	color: inherit;
 }
 
-.label {
-	/* inherits sidebar font-size (1.05rem) */
-	font-weight: 650; /* makes it “action” without being huge */
+.addTaskLabel {
+	font-weight: 650;
 	line-height: 1.2;
 	letter-spacing: 0.01em;
 }

@@ -7,16 +7,16 @@ const AddTaskControl = ({ onOpen }) => {
 	return (
 		<button
 			type='button'
-			className={styles.addTaskControl}
+			className={styles.addTaskButton}
 			onClick={onOpen}
 			aria-label={ariaLabel}>
 			<span
-				className={styles.iconWrap}
+				className={styles.addTaskIconWrapper}
 				aria-hidden='true'>
-				<Icon className={styles.icon} />
+				<Icon className={styles.addTaskIcon} />
 			</span>
 
-			<span className={styles.label}>{label}</span>
+			<span className={styles.addTaskLabel}>{label}</span>
 		</button>
 	);
 };
