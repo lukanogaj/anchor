@@ -8,9 +8,8 @@ This project focuses on predictable data flow, clear architecture, and a calm pr
 
 ## Live Demo
 
-👉 https://your-app-name.vercel.app
-
-_(Replace this with your deployed link later)_
+👉 Live Demo:
+https://anchor-phi-sandy.vercel.app
 
 ---
 
