@@ -13,8 +13,10 @@ const useTodos = () => {
 	const [todos, setTodos] = useState([]);
 	const [loading, setLoading] = useState(true);
 
-	const fetchTodos = async () => {
-		setLoading(true);
+	const fetchTodos = async (initial = false) => {
+		if (initial) {
+			setLoading(true);
+		}
 
 		try {
 			const data = await fetchTodosService();
@@ -22,12 +24,14 @@ const useTodos = () => {
 		} catch (err) {
 			console.error("Error fetching todos:", err);
 		} finally {
-			setLoading(false);
+			if (initial) {
+				setLoading(false);
+			}
 		}
 	};
 
 	useEffect(() => {
-		fetchTodos();
+		fetchTodos(true);
 
 		const channel = supabase
 			.channel("public-todos-channel")
