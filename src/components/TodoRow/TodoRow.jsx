@@ -112,6 +112,12 @@ const TodoRow = ({ todo, actions }) => {
 		setIsEditing(false);
 		setEditError("");
 	};
+	const onEditFieldKeyDown = (e) => {
+		if (e.key === "Enter") {
+			e.preventDefault();
+			onSaveEdit(e);
+		}
+	};
 	const onSaveEdit = async (e) => {
 		e.preventDefault();
 
@@ -135,8 +141,7 @@ const TodoRow = ({ todo, actions }) => {
 			return;
 		}
 
-		setIsEditing(false);
-		setEditError("");
+		closeEdit();
 	};
 
 	const onDelete = async () => {
@@ -281,6 +286,7 @@ const TodoRow = ({ todo, actions }) => {
 								type='text'
 								value={editTitle}
 								onChange={(e) => setEditTitle(e.target.value)}
+								onKeyDown={onEditFieldKeyDown}
 							/>
 						</div>
 
@@ -296,6 +302,7 @@ const TodoRow = ({ todo, actions }) => {
 								type='date'
 								value={editDueOn ?? ""}
 								onChange={(e) => setEditDueOn(e.target.value)}
+								onKeyDown={onEditFieldKeyDown}
 							/>
 						</div>
 
