@@ -14,7 +14,8 @@ import {
 } from "../../features/hooks";
 
 const MyDayContainer = () => {
-	const { todos, deleteTodo, updateTodo, completeTodo, addTodo } = useTodos();
+	const { todos, loading, deleteTodo, updateTodo, completeTodo, addTodo } =
+		useTodos();
 
 	const overdueTodos = useOverdueTodos(todos);
 	const todayTodos = useTodayTodos(todos);
@@ -38,6 +39,7 @@ const MyDayContainer = () => {
 				onOpenAddTask={openAddTask}
 				headerLeftContent={<h1>My Day</h1>}>
 				<MyDayPage
+					loading={loading}
 					overdueTodos={overdueTodos}
 					todayTodos={todayTodos}
 					upcomingTodos={upcomingTodos}

@@ -29,6 +29,20 @@
 	}
 }
 
+.myDayLoadingState {
+	width: 100%;
+	padding: 1.25rem 1.5rem;
+	border-radius: 1rem;
+	background: rgba(255, 255, 255, 0.04);
+	border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.myDayLoadingText {
+	margin: 0;
+	color: rgba(255, 255, 255, 0.72);
+	font-size: 0.95rem;
+}
+
 .myDaySectionHeader {
 	display: flex;
 	align-items: center;
@@ -140,5 +154,9 @@
 
 	.myDaySectionEmpty {
 		padding: 0.9rem 1rem;
+	}
+
+	.myDayLoadingState {
+		padding: 1rem;
 	}
 }

@@ -30,12 +30,25 @@ const Section = ({ title, emptyText, todos, actions, variant }) => {
 };
 
 const MyDayPage = ({
+	loading,
 	overdueTodos,
 	todayTodos,
 	actions,
 	upcomingTodos,
 	undatedTodos,
 }) => {
+	if (loading) {
+		return (
+			<section className={styles.myDayPage}>
+				<div className={styles.myDayPageContent}>
+					<div className={styles.myDayLoadingState}>
+						<p className={styles.myDayLoadingText}>Loading your tasks...</p>
+					</div>
+				</div>
+			</section>
+		);
+	}
+
 	return (
 		<section className={styles.myDayPage}>
 			<div className={styles.myDayPageContent}>
