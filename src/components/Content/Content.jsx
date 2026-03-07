@@ -11,7 +11,7 @@ const Content = ({ children, onOpenAddTask, headerLeftContent }) => {
 			<div className={styles.contentMain}>
 				<div className={styles.contentColumn}>
 					<header className={styles.contentHeader}>
-						<div className={styles.headerLeft}>{headerLeftContent}</div>
+						<div className={styles.contentHeaderLeft}>{headerLeftContent}</div>
 
 						<div className={styles.contentHeaderRight}>
 							<DateTimeClock />
