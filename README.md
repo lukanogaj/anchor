@@ -10,7 +10,7 @@ This project focuses on predictable data flow, clear architecture, and a calm pr
 
 👉 https://your-app-name.vercel.app
 
-_(Replace this link after deployment)_
+_(Replace this with your deployed link later)_
 
 ---
 
@@ -19,17 +19,17 @@ _(Replace this link after deployment)_
 - Create, edit, complete and delete tasks
 - Inline task editing
 - Due date validation
-- Automatic grouping:
+- Automatic task grouping:
   - Overdue
   - Today
   - Upcoming
   - No Date
 - Real-time updates with Supabase
-- Keyboard shortcuts
-  - Enter → Save
-  - Escape → Cancel
+- Keyboard interactions
+  - Enter → Save edit
+  - Escape → Close menu or edit mode
+- Loading state for initial data fetch
 - Responsive layout
-- Loading state on initial fetch
 
 ---
 
@@ -50,16 +50,16 @@ _(Replace this link after deployment)_
 
 ## Architecture
 
-The project follows a layered structure:
+The project follows a layered structure to separate layout, data orchestration, and presentation.
 
 ```
 Layout
 ↓
-Content (app shell)
+Content (App Shell)
 ↓
-Container (data orchestration)
+Container (Data orchestration)
 ↓
-Pages (presentation)
+Pages (Presentation)
 ↓
 Components
 ↓
@@ -68,7 +68,7 @@ Hooks
 Services
 ```
 
-Example structure:
+Example folder structure:
 
 ```
 src
@@ -79,6 +79,35 @@ src
  ├ services
  └ lib
 ```
+
+---
+
+## Key Technical Decisions
+
+### Layered architecture
+
+The application separates layout, containers, pages, and components to maintain clear responsibilities between UI rendering and data logic.
+
+### Custom hooks for domain logic
+
+Hooks such as `useTodos`, `useTodayTodos`, `useOverdueTodos`, `useUpcomingTodos`, and `useUndatedTodos` encapsulate filtering and data logic outside the UI components.
+
+### Supabase as backend
+
+Supabase provides a PostgreSQL database and realtime subscriptions, allowing the app to update automatically when data changes without manual refresh.
+
+### Derived task status
+
+Task sections (Overdue, Today, Upcoming) are derived from the `due_on` date instead of storing a status field.  
+This avoids inconsistent state and keeps the database model simple.
+
+### Initial loading state
+
+The loading state is applied only during the initial fetch to prevent UI flicker when realtime updates occur.
+
+### SCSS Modules
+
+SCSS Modules provide locally scoped styles, preventing global CSS conflicts and making the UI easier to maintain.
 
 ---
 
@@ -98,12 +127,12 @@ npm install
 
 Create `.env` file
 
-```env
+```
 REACT_APP_SUPABASE_URL=your_url
 REACT_APP_SUPABASE_ANON_KEY=your_key
 ```
 
-Start development server
+Start the development server
 
 ```bash
 npm start
@@ -115,7 +144,7 @@ npm start
 
 - Drag and drop task ordering
 - Project-based task grouping
-- Mobile navigation menu
+- Mobile navigation entry point
 - Improved error handling
 
 ---
