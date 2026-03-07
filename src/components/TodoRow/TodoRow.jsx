@@ -17,12 +17,19 @@ const TodoRow = ({ todo, actions }) => {
 
 	const completeTimerRef = useRef(null);
 	const menuRef = useRef(null);
+	const titleInputRef = useRef(null);
 
 	useEffect(() => {
 		return () => {
 			if (completeTimerRef.current) clearTimeout(completeTimerRef.current);
 		};
 	}, []);
+
+	useEffect(() => {
+		if (isEditing && titleInputRef.current) {
+			titleInputRef.current.focus();
+		}
+	}, [isEditing]);
 
 	useEffect(() => {
 		const handleKeyDown = (e) => {
@@ -281,6 +288,7 @@ const TodoRow = ({ todo, actions }) => {
 								Title
 							</label>
 							<input
+								ref={titleInputRef}
 								id={`edit-title-${todo.id}`}
 								className={styles.todoRowEditInput}
 								type='text'
