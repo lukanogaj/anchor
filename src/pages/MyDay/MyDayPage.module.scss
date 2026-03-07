@@ -1,4 +1,3 @@
-
 .myDayPage {
 	width: 100%;
 	padding: 2.5rem 0;
@@ -117,4 +116,29 @@
 		rgba(156, 163, 175, 0.05) 25%,
 		transparent 60%
 	);
+}
+/* =========================
+   Small screens
+   ========================= */
+
+@media (max-width: 40rem) {
+	.myDayPage {
+		padding: 2rem 0;
+	}
+
+	.myDayPageContent {
+		gap: 1.25rem;
+	}
+
+	.myDaySectionHeader {
+		padding: 0.9rem 1rem;
+	}
+
+	.myDaySectionList {
+		padding: 0.9rem 1rem;
+	}
+
+	.myDaySectionEmpty {
+		padding: 0.9rem 1rem;
+	}
 }
