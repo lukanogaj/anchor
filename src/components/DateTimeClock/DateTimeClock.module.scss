@@ -18,6 +18,7 @@
 	font-weight: 700;
 	color: #fff;
 	text-align: right;
+	line-height: 1.15;
 }
 
 .dateTimeClockTime {
@@ -32,4 +33,39 @@
 	font-weight: 600;
 	color: rgba(255, 255, 255, 0.7);
 	text-align: right;
+	line-height: 1.2;
+}
+
+@media (max-width: 48rem) {
+	.dateTimeClockDateText {
+		font-size: 1.75rem;
+	}
+
+	.dateTimeClockTimeText {
+		font-size: 1.1rem;
+	}
+}
+
+@media (max-width: 40rem) {
+	.dateTimeClock {
+		align-items: flex-start;
+	}
+
+	.dateTimeClockDate {
+		justify-content: flex-start;
+	}
+
+	.dateTimeClockTime {
+		justify-content: flex-start;
+	}
+
+	.dateTimeClockDateText {
+		font-size: 1.4rem;
+		text-align: left;
+	}
+
+	.dateTimeClockTimeText {
+		font-size: 1rem;
+		text-align: left;
+	}
 }

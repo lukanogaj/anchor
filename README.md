@@ -114,15 +114,12 @@ SCSS Modules provide locally scoped styles, preventing global CSS conflicts and 
 
 Clone the repository
 
-```bash
-git clone https://github.com/yourusername/scheduler.git
-```
-
-Install dependencies
-
+````bash
+git clone https://github.com/lukanogaj/anchor.git
+cd anchor
 ```bash
 npm install
-```
+````
 
 Create `.env` file
 

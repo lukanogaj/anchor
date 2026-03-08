@@ -31,8 +31,8 @@ export const SIDEBAR_HEADER_DATA = {
 };
 
 export const SIDEBAR_ADD_TASK_DATA = {
-	label: "Add Task",
-	ariaLabel: "Add task",
+	label: "Add Todo",
+	ariaLabel: "Add todo",
 	icon: Plus,
 };
 

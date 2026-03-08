@@ -27,7 +27,50 @@
 	}
 }
 
+.headerUtilitiesAddButton {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+
+	min-height: 2.75rem;
+	padding: 0 0.9rem;
+
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 0.85rem;
+	background: #2f5f78;
+	color: #ffffff;
+
+	font-size: 0.95rem;
+	font-weight: 650;
+	cursor: pointer;
+
+	transition:
+		opacity 0.2s ease,
+		transform 0.12s ease,
+		background 0.2s ease;
+
+	&:hover {
+		opacity: 0.96;
+	}
+
+	&:active {
+		transform: translateY(1px);
+	}
+}
+
 .headerUtilitiesIcon {
 	width: 1.35rem;
 	height: 1.35rem;
+}
+
+@media (max-width: 48rem) {
+	.headerUtilities {
+		width: 100%;
+		justify-content: flex-start;
+	}
+
+	.headerUtilitiesAddButton {
+		display: inline-flex;
+	}
 }

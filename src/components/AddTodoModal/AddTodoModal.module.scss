@@ -24,7 +24,14 @@
 	box-shadow: 0 18px 60px rgba(0, 0, 0, 0.5);
 }
 
-.addTodoModalPanel h1 {
+.addTodoModalHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.addTodoModalHeader h1 {
 	margin: 0;
 	padding: 0;
 	font-size: 1.6rem;
@@ -33,19 +40,44 @@
 	color: #e6edf3;
 }
 
+.addTodoModalClose {
+	width: 2.5rem;
+	height: 2.5rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	border-radius: 999px;
+	background: transparent;
+	color: #e6edf3;
+	font-size: 1.5rem;
+	line-height: 1;
+	cursor: pointer;
+	transition:
+		background 160ms ease,
+		opacity 160ms ease;
+}
+
+.addTodoModalClose:hover {
+	background: rgba(255, 255, 255, 0.08);
+}
+
+.addTodoModalForm {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
 .addTodoModalPanel input,
 .addTodoModalPanel textarea {
 	width: 100%;
 	border-radius: 0.95rem;
 	border: 1px solid rgba(255, 255, 255, 0.08);
-
 	background: #0f141a;
 	color: #e6edf3;
-
 	font-size: 1rem;
 	padding: 0.9rem 1rem;
 	outline: none;
-
 	transition:
 		border-color 160ms ease,
 		box-shadow 160ms ease,
@@ -77,40 +109,60 @@
 	color-scheme: dark;
 }
 
-.addTodoModalSubmit {
-	margin-top: 0.5rem;
-	height: 3.25rem;
-	width: 100%;
+.addTodoModalError {
+	color: #d64545;
+	margin-top: 0.25rem;
+	font-size: 0.9rem;
+}
 
+.addTodoModalActions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.75rem;
+	margin-top: 0.5rem;
+}
+
+.addTodoModalCancel,
+.addTodoModalSubmit {
+	height: 3.25rem;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	gap: 0.6rem;
-
 	padding: 0 1rem;
-	border: none;
 	border-radius: 0.95rem;
-
-	background: #2f5f78;
-	color: #ffffff;
-
 	font-size: 1rem;
 	font-weight: 700;
 	letter-spacing: 0.01em;
-
 	cursor: pointer;
-
 	transition:
 		transform 120ms ease,
 		opacity 120ms ease,
 		background 120ms ease;
 }
 
+.addTodoModalCancel {
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: transparent;
+	color: #e6edf3;
+}
+
+.addTodoModalCancel:hover {
+	background: rgba(255, 255, 255, 0.06);
+}
+
+.addTodoModalSubmit {
+	border: none;
+	background: #2f5f78;
+	color: #ffffff;
+}
+
 .addTodoModalSubmit:hover {
 	opacity: 0.95;
 }
 
-.addTodoModalSubmit:active {
+.addTodoModalSubmit:active,
+.addTodoModalCancel:active {
 	transform: translateY(1px);
 }
 
@@ -119,27 +171,18 @@
 	height: 1.1rem;
 }
 
-.addTodoModalError {
-	color: #d64545;
-	margin-top: 0.25rem;
-	font-size: 0.9rem;
-}
-
 .addTodoModalSuccess {
 	position: fixed;
 	left: 50%;
 	top: 1.25rem;
 	transform: translateX(-50%);
 	z-index: 60;
-
 	background: #0b1220;
 	color: #e6edf3;
 	border: 1px solid rgba(255, 255, 255, 0.12);
 	border-radius: 1rem;
-
 	padding: 0.9rem 1.1rem;
 	font-size: 0.95rem;
 	font-weight: 600;
-
 	box-shadow: 0 16px 50px rgba(0, 0, 0, 0.45);
 }

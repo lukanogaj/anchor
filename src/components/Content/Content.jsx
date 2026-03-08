@@ -15,14 +15,10 @@ const Content = ({ children, onOpenAddTask, headerLeftContent }) => {
 
 						<div className={styles.contentHeaderRight}>
 							<DateTimeClock />
+							<HeaderUtilities onOpenAddTask={onOpenAddTask} />
 						</div>
 					</header>
-
 					<main className={styles.contentBody}>{children}</main>
-				</div>
-
-				<div className={styles.contentRightRail}>
-					<HeaderUtilities />
 				</div>
 			</div>
 		</div>
