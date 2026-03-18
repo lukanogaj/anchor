@@ -84,11 +84,15 @@ const useTodos = () => {
 	};
 
 	const deleteTodo = async (id) => {
+		if (!id) {
+			return { ok: false, error: "Invalid id" };
+		}
 		try {
 			await removeTodo(id);
 			await fetchTodos();
+			return { ok: true };
 		} catch (error) {
-			console.error("Error deleting todo:", error);
+			return { ok: false, error: error.message || "Error deleting todo:" };
 		}
 	};
 
