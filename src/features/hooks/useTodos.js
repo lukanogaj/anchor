@@ -8,7 +8,6 @@ import {
 	updateTodo as updateTodoService,
 	markTodoComplete,
 } from "../../services/todosServices";
-import { faL } from "@fortawesome/free-solid-svg-icons";
 
 const useTodos = () => {
 	const [todos, setTodos] = useState([]);
