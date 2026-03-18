@@ -8,6 +8,7 @@ import {
 	updateTodo as updateTodoService,
 	markTodoComplete,
 } from "../../services/todosServices";
+import { faL } from "@fortawesome/free-solid-svg-icons";
 
 const useTodos = () => {
 	const [todos, setTodos] = useState([]);
@@ -124,11 +125,15 @@ const useTodos = () => {
 		}
 	};
 	const completeTodo = async (id) => {
+		if (!id) {
+			return { ok: false, error: "Invalid id" };
+		}
 		try {
 			await markTodoComplete(id);
 			await fetchTodos();
+			return { ok: true };
 		} catch (error) {
-			console.error("Error completing todo:", error);
+			return { ok: false, error: error.message || "Error completing todo:" };
 		}
 	};
 
