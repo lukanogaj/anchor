@@ -1,151 +1,49 @@
-# Anchor Scheduler
 
-A clean task management application built with **React** and **Supabase**.
+# Anchor — Task Scheduler
 
-This project focuses on predictable data flow, clear architecture, and a calm productivity experience.
-
----
+Simple task management app built with React and Supabase.
 
 ## Live Demo
 
-👉 Live Demo:
 https://anchor-phi-sandy.vercel.app
-
----
-
-## Features
-
-- Create, edit, complete and delete tasks
-- Inline task editing
-- Due date validation
-- Automatic task grouping:
-  - Overdue
-  - Today
-  - Upcoming
-  - No Date
-- Real-time updates with Supabase
-- Keyboard interactions
-  - Enter → Save edit
-  - Escape → Close menu or edit mode
-- Loading state for initial data fetch
-- Responsive layout
-
----
 
 ## Tech Stack
 
-### Frontend
+* React
+* JavaScript
+* Supabase
+* SCSS Modules
 
-- React
-- SCSS Modules
+## Features
 
-### Backend
+* add, edit, complete and delete tasks
+* basic filtering (today, overdue, upcoming, no date)
+* realtime updates using Supabase
+* simple loading state
 
-- Supabase
-- PostgreSQL
-- Realtime subscriptions
+## What I did
 
----
+* built main app structure using React components
+* handled state and data using custom hook (useTodos)
+* connected app to Supabase for storing tasks
+* created simple filtering based on due date
+* split logic and UI (container + page + components)
 
-## Architecture
+## Data Flow
 
-The project follows a layered structure to separate layout, data orchestration, and presentation.
+UI → handler → useTodos → Supabase → state → UI
 
-```
-Layout
-↓
-Content (App Shell)
-↓
-Container (Data orchestration)
-↓
-Pages (Presentation)
-↓
-Components
-↓
-Hooks
-↓
-Services
-```
+## Purpose
 
-Example folder structure:
+This project was built to practice building a simple real-world React app with data handling.
 
-```
-src
- ├ components
- ├ containers
- ├ pages
- ├ features/hooks
- ├ services
- └ lib
-```
+## Run locally
 
----
-
-## Key Technical Decisions
-
-### Layered architecture
-
-The application separates layout, containers, pages, and components to maintain clear responsibilities between UI rendering and data logic.
-
-### Custom hooks for domain logic
-
-Hooks such as `useTodos`, `useTodayTodos`, `useOverdueTodos`, `useUpcomingTodos`, and `useUndatedTodos` encapsulate filtering and data logic outside the UI components.
-
-### Supabase as backend
-
-Supabase provides a PostgreSQL database and realtime subscriptions, allowing the app to update automatically when data changes without manual refresh.
-
-### Derived task status
-
-Task sections (Overdue, Today, Upcoming) are derived from the `due_on` date instead of storing a status field.  
-This avoids inconsistent state and keeps the database model simple.
-
-### Initial loading state
-
-The loading state is applied only during the initial fetch to prevent UI flicker when realtime updates occur.
-
-### SCSS Modules
-
-SCSS Modules provide locally scoped styles, preventing global CSS conflicts and making the UI easier to maintain.
-
----
-
-## Running Locally
-
-Clone the repository
-
-````bash
-git clone https://github.com/lukanogaj/anchor.git
-cd anchor
-```bash
+```bash id="n2k9dw"
 npm install
-````
-
-Create `.env` file
-
+npm run dev
 ```
-REACT_APP_SUPABASE_URL=your_url
-REACT_APP_SUPABASE_ANON_KEY=your_key
-```
-
-Start the development server
-
-```bash
-npm start
-```
-
----
-
-## Future Improvements
-
-- Drag and drop task ordering
-- Project-based task grouping
-- Mobile navigation entry point
-- Improved error handling
-
----
 
 ## Author
 
-**Lukasz Nogaj**  
-React Developer
+Lukasz Nogaj
