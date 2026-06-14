@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 const COMPLETE_DELAY_MS = 500;
 
 const TodoRow = ({ todo, actions }) => {
+	// UI state
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [isCompleting, setIsCompleting] = useState(false);
 
@@ -15,22 +16,25 @@ const TodoRow = ({ todo, actions }) => {
 	const [editDueOn, setEditDueOn] = useState(todo?.due_on ?? "");
 	const [editError, setEditError] = useState("");
 
+	// Refs for async cleanup and DOM interactions
 	const completeTimerRef = useRef(null);
 	const menuRef = useRef(null);
 	const titleInputRef = useRef(null);
 
+	// Completion flow
 	useEffect(() => {
 		return () => {
 			if (completeTimerRef.current) clearTimeout(completeTimerRef.current);
 		};
 	}, []);
 
+	// Edit flow
 	useEffect(() => {
 		if (isEditing && titleInputRef.current) {
 			titleInputRef.current.focus();
 		}
 	}, [isEditing]);
-
+	// Keyboard interactions
 	useEffect(() => {
 		const handleKeyDown = (e) => {
 			if (e.key !== "Escape") return;
@@ -51,12 +55,12 @@ const TodoRow = ({ todo, actions }) => {
 			document.removeEventListener("keydown", handleKeyDown);
 		};
 	}, [isMenuOpen, isEditing]);
-
+	// Edit flow
 	useEffect(() => {
 		setEditTitle(todo?.title ?? "");
 		setEditDueOn(todo?.due_on ?? "");
 	}, [todo?.title, todo?.due_on]);
-
+	// Menu interactions
 	useEffect(() => {
 		if (!isMenuOpen) return;
 
@@ -73,17 +77,17 @@ const TodoRow = ({ todo, actions }) => {
 	}, [isMenuOpen]);
 
 	if (!todo) return null;
-
+	// Derived values
 	const { completeTodo, updateTodo, deleteTodo } = actions;
 	const isDoneVisual = isCompleting || !!todo.completed;
-
+	// Menu actions
 	const closeMenu = () => setIsMenuOpen(false);
 
 	const toggleExpand = () => {
 		closeMenu();
 		setIsExpanded((prev) => !prev);
 	};
-
+	// Completion flow
 	const onComplete = () => {
 		if (isCompleting || todo.completed) return;
 
@@ -104,6 +108,7 @@ const TodoRow = ({ todo, actions }) => {
 		}, COMPLETE_DELAY_MS);
 	};
 
+	// Edit flow
 	const openEdit = () => {
 		closeMenu();
 		setIsExpanded(false);
@@ -150,7 +155,7 @@ const TodoRow = ({ todo, actions }) => {
 
 		closeEdit();
 	};
-
+	// Delete flow
 	const onDelete = async () => {
 		closeMenu();
 
@@ -161,7 +166,7 @@ const TodoRow = ({ todo, actions }) => {
 			setEditError(res?.error ?? "Failed to delete todo");
 		}
 	};
-
+	// Render
 	return (
 		<div
 			className={`${styles.todoRow} ${
