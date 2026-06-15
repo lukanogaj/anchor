@@ -1,13 +1,13 @@
 import styles from "./TodoRow.module.scss";
 import { Dots, Dot, Star, Watch, ChevronDown } from "../images/icons/Icons";
 import { useEffect, useRef, useState } from "react";
+import { useTodoRowCompletion } from "../../features/hooks/useTodoRowCompletion";
 
-const COMPLETE_DELAY_MS = 500;
+// const COMPLETE_DELAY_MS = 500;
 
 const TodoRow = ({ todo, actions }) => {
 	// UI state
 	const [isExpanded, setIsExpanded] = useState(false);
-	const [isCompleting, setIsCompleting] = useState(false);
 
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isEditing, setIsEditing] = useState(false);
@@ -17,16 +17,8 @@ const TodoRow = ({ todo, actions }) => {
 	const [editError, setEditError] = useState("");
 
 	// Refs for async cleanup and DOM interactions
-	const completeTimerRef = useRef(null);
 	const menuRef = useRef(null);
 	const titleInputRef = useRef(null);
-
-	// Completion flow
-	useEffect(() => {
-		return () => {
-			if (completeTimerRef.current) clearTimeout(completeTimerRef.current);
-		};
-	}, []);
 
 	// Edit flow
 	useEffect(() => {
@@ -76,9 +68,14 @@ const TodoRow = ({ todo, actions }) => {
 		};
 	}, [isMenuOpen]);
 
-	if (!todo) return null;
 	// Derived values
 	const { completeTodo, updateTodo, deleteTodo } = actions;
+
+	const { isCompleting, onComplete } = useTodoRowCompletion({
+		todo,
+		completeTodo,
+		setEditError,
+	});
 	const isDoneVisual = isCompleting || !!todo.completed;
 	// Menu actions
 	const closeMenu = () => setIsMenuOpen(false);
@@ -86,26 +83,6 @@ const TodoRow = ({ todo, actions }) => {
 	const toggleExpand = () => {
 		closeMenu();
 		setIsExpanded((prev) => !prev);
-	};
-	// Completion flow
-	const onComplete = () => {
-		if (isCompleting || todo.completed) return;
-
-		setIsCompleting(true);
-
-		completeTimerRef.current = setTimeout(async () => {
-			try {
-				const res = await completeTodo(todo.id);
-
-				if (res && typeof res === "object" && "ok" in res && !res.ok) {
-					setIsCompleting(false);
-					setEditError(res.error ?? "Failed to complete todo");
-				}
-			} catch {
-				setIsCompleting(false);
-				setEditError("Failed to complete todo");
-			}
-		}, COMPLETE_DELAY_MS);
 	};
 
 	// Edit flow
