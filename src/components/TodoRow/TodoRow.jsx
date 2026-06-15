@@ -2,12 +2,12 @@ import styles from "./TodoRow.module.scss";
 import { Dots, Dot, Star, Watch, ChevronDown } from "../images/icons/Icons";
 import { useEffect, useRef, useState } from "react";
 import { useTodoRowCompletion } from "../../features/hooks/useTodoRowCompletion";
+import { useTodoRowMenu } from "../../features/hooks/useTodoRowMenu";
 
 const TodoRow = ({ todo, actions }) => {
 	// UI state
 	const [isExpanded, setIsExpanded] = useState(false);
 
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isEditing, setIsEditing] = useState(false);
 
 	const [editTitle, setEditTitle] = useState(todo?.title ?? "");
@@ -15,8 +15,8 @@ const TodoRow = ({ todo, actions }) => {
 	const [editError, setEditError] = useState("");
 
 	// Refs for async cleanup and DOM interactions
-	const menuRef = useRef(null);
 	const titleInputRef = useRef(null);
+	const { isMenuOpen, menuRef, closeMenu, toggleMenu } = useTodoRowMenu();
 
 	// Edit flow
 	useEffect(() => {
@@ -30,7 +30,7 @@ const TodoRow = ({ todo, actions }) => {
 			if (e.key !== "Escape") return;
 
 			if (isMenuOpen) {
-				setIsMenuOpen(false);
+				closeMenu();
 			}
 
 			if (isEditing) {
@@ -44,28 +44,12 @@ const TodoRow = ({ todo, actions }) => {
 		return () => {
 			document.removeEventListener("keydown", handleKeyDown);
 		};
-	}, [isMenuOpen, isEditing]);
+	}, [isMenuOpen, isEditing, closeMenu]);
 	// Edit flow
 	useEffect(() => {
 		setEditTitle(todo?.title ?? "");
 		setEditDueOn(todo?.due_on ?? "");
 	}, [todo?.title, todo?.due_on]);
-	// Menu interactions
-	useEffect(() => {
-		if (!isMenuOpen) return;
-
-		const handleClickOutside = (event) => {
-			if (menuRef.current && !menuRef.current.contains(event.target)) {
-				setIsMenuOpen(false);
-			}
-		};
-
-		document.addEventListener("mousedown", handleClickOutside);
-		return () => {
-			document.removeEventListener("mousedown", handleClickOutside);
-		};
-	}, [isMenuOpen]);
-
 	// Derived values
 	const { completeTodo, updateTodo, deleteTodo } = actions;
 
@@ -75,8 +59,6 @@ const TodoRow = ({ todo, actions }) => {
 		setEditError,
 	});
 	const isDoneVisual = isCompleting || !!todo.completed;
-	// Menu actions
-	const closeMenu = () => setIsMenuOpen(false);
 
 	const toggleExpand = () => {
 		closeMenu();
@@ -199,7 +181,7 @@ const TodoRow = ({ todo, actions }) => {
 							<button
 								type='button'
 								className={styles.todoRowIconButton}
-								onClick={() => setIsMenuOpen((prev) => !prev)}
+								onClick={toggleMenu}
 								disabled={isCompleting}
 								aria-label='More actions'
 								aria-expanded={isMenuOpen}>
