@@ -3,8 +3,6 @@ import { Dots, Dot, Star, Watch, ChevronDown } from "../images/icons/Icons";
 import { useEffect, useRef, useState } from "react";
 import { useTodoRowCompletion } from "../../features/hooks/useTodoRowCompletion";
 
-// const COMPLETE_DELAY_MS = 500;
-
 const TodoRow = ({ todo, actions }) => {
 	// UI state
 	const [isExpanded, setIsExpanded] = useState(false);
