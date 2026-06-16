@@ -1,6 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 
-export const useTodoRowCompletion = ({ todo, completeTodo, setEditError }) => {
+export const useTodoRowCompletion = ({
+	todoId,
+	isCompleted,
+	completeTodo,
+	onError,
+}) => {
 	const COMPLETE_DELAY_MS = 500;
 
 	const [isCompleting, setIsCompleting] = useState(false);
@@ -14,21 +19,21 @@ export const useTodoRowCompletion = ({ todo, completeTodo, setEditError }) => {
 	}, []);
 
 	const onComplete = () => {
-		if (isCompleting || todo.completed) return;
+		if (isCompleting || isCompleted) return;
 
 		setIsCompleting(true);
 
 		completeTimerRef.current = setTimeout(async () => {
 			try {
-				const res = await completeTodo(todo.id);
+				const res = await completeTodo(todoId);
 
 				if (res && typeof res === "object" && "ok" in res && !res.ok) {
 					setIsCompleting(false);
-					setEditError(res.error ?? "Failed to complete todo");
+					onError(res.error ?? "Failed to complete todo");
 				}
 			} catch {
 				setIsCompleting(false);
-				setEditError("Failed to complete todo");
+				onError("Failed to complete todo");
 			}
 		}, COMPLETE_DELAY_MS);
 	};

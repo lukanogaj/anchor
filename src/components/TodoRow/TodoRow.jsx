@@ -54,9 +54,10 @@ const TodoRow = ({ todo, actions }) => {
 	const { completeTodo, updateTodo, deleteTodo } = actions;
 
 	const { isCompleting, onComplete } = useTodoRowCompletion({
-		todo,
+		todoId: todo.id,
 		completeTodo,
-		setEditError,
+		isCompleted: todo.completed,
+		onError: setEditError,
 	});
 	const isDoneVisual = isCompleting || !!todo.completed;
 
