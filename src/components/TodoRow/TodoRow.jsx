@@ -1,29 +1,28 @@
 import styles from "./TodoRow.module.scss";
 import { Dots, Dot, Star, Watch, ChevronDown } from "../images/icons/Icons";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTodoRowCompletion } from "../../features/hooks/useTodoRowCompletion";
 import { useTodoRowMenu } from "../../features/hooks/useTodoRowMenu";
+import { useTodoRowEdit } from "../../features/hooks/useTodoRowEdit";
 
 const TodoRow = ({ todo, actions }) => {
 	// UI state
 	const [isExpanded, setIsExpanded] = useState(false);
 
-	const [isEditing, setIsEditing] = useState(false);
-
-	const [editTitle, setEditTitle] = useState(todo?.title ?? "");
-	const [editDueOn, setEditDueOn] = useState(todo?.due_on ?? "");
-	const [editError, setEditError] = useState("");
-
-	// Refs for async cleanup and DOM interactions
-	const titleInputRef = useRef(null);
 	const { isMenuOpen, menuRef, closeMenu, toggleMenu } = useTodoRowMenu();
+	const {
+		isEditing,
+		setEditError,
+		setEditDueOn,
+		setEditTitle,
+		editDueOn,
+		editTitle,
+		editError,
+		titleInputRef,
+		openEdit,
+		closeEdit,
+	} = useTodoRowEdit({ todo });
 
-	// Edit flow
-	useEffect(() => {
-		if (isEditing && titleInputRef.current) {
-			titleInputRef.current.focus();
-		}
-	}, [isEditing]);
 	// Keyboard interactions
 	useEffect(() => {
 		const handleKeyDown = (e) => {
@@ -34,8 +33,7 @@ const TodoRow = ({ todo, actions }) => {
 			}
 
 			if (isEditing) {
-				setIsEditing(false);
-				setEditError("");
+				closeEdit();
 			}
 		};
 
@@ -44,12 +42,8 @@ const TodoRow = ({ todo, actions }) => {
 		return () => {
 			document.removeEventListener("keydown", handleKeyDown);
 		};
-	}, [isMenuOpen, isEditing, closeMenu]);
-	// Edit flow
-	useEffect(() => {
-		setEditTitle(todo?.title ?? "");
-		setEditDueOn(todo?.due_on ?? "");
-	}, [todo?.title, todo?.due_on]);
+	}, [isMenuOpen, isEditing, closeMenu, setEditError, closeEdit]);
+
 	// Derived values
 	const { completeTodo, updateTodo, deleteTodo } = actions;
 
@@ -66,22 +60,15 @@ const TodoRow = ({ todo, actions }) => {
 		setIsExpanded((prev) => !prev);
 	};
 
-	// Edit flow
-	const openEdit = () => {
+	const prepareRowForEdit = () => {
 		closeMenu();
 		setIsExpanded(false);
-
-		setEditTitle(todo.title ?? "");
-		setEditDueOn(todo.due_on ?? "");
-		setEditError("");
-
-		setIsEditing(true);
+	};
+	const handleOpenEdit = () => {
+		prepareRowForEdit();
+		openEdit();
 	};
 
-	const closeEdit = () => {
-		setIsEditing(false);
-		setEditError("");
-	};
 	const onEditFieldKeyDown = (e) => {
 		if (e.key === "Enter") {
 			e.preventDefault();
@@ -194,7 +181,7 @@ const TodoRow = ({ todo, actions }) => {
 									<button
 										type='button'
 										className={styles.todoRowMenuItem}
-										onClick={openEdit}>
+										onClick={handleOpenEdit}>
 										Edit
 									</button>
 
